@@ -1,77 +1,75 @@
 (root => {
-  var document = root.document
+	const HeaderRegExp = /h(\d)/i
 
-  getHeaderLevel.REGEXP = /h(\d)/i
-  function getHeaderLevel ($h) {
-    var level = Number(((($h || {}).tagName || '').match(getHeaderLevel.REGEXP) || [])[1])
-    return isNaN(level) ? undefined : level
-  }
+	function getHeaderLevel($h) {
+		const level = parseInt((($h.tagName).match(HeaderRegExp))[1], 10)
+		return isNaN(level) ? undefined : level
+	}
 
-  var headerSels = []
-  for (var l = 1; l <= 6; l++) headerSels.push('h'+l)
-  var headerSel = headerSels.join(', ')
-  var anchorSel = 'a[id]'
-  var linkSel = 'a[href^="#"]:not(.anchor)'
+	const headerSelector = new Array(6)
+		.fill(1)
+		.reduce((acc, val, i) => {
+			acc.push('h' + i)
+			return acc
+		}, [])
+		.join(', ')
 
-  root.chrome.storage.sync.get({
-    // default values
-    hideIfOutlineDetected: true,
-    float: false,
-    useInnerHTML: true
-  }, options => {
-    Array.from(document.querySelectorAll('.markdown-body')).forEach($md => {
-      var $headers = Array.from($md.querySelectorAll(headerSel))
+	const anchorSelector = 'a[id]'
 
-      if (options.hideIfOutlineDetected && $md.querySelectorAll(linkSel).length >= Math.max($headers.length - 10, 0)) return // there's already an outline in the document
+	root.chrome.storage.sync.get({
+		useInnerHTML: true
+	}, (options) => {
+		document.querySelectorAll('.markdown-body')
+			.forEach(($article) => {
+				const $headers = Array.from($article.querySelectorAll(headerSelector))
 
-      var $container = document.createElement('div')
-      $container.classList.add('__github-markdown-outline-container')
-      if (options.float) $container.classList.add('__github-markdown-outline-container--float')
+				const $container = document.createElement('div')
+				$container.classList.add('__github-markdown-toc-container')
 
-      var $outline = document.createElement('ul')
-      $outline.classList.add('__github-markdown-outline')
-      $container.appendChild($outline)
+				const $outline = document.createElement('ul')
+				$outline.classList.add('__github-markdown-toc')
+				$container.appendChild($outline)
 
-      // generate outline from headers
-      $headers.forEach($h => {
-        var level = getHeaderLevel($h)
-        if (!level) return
-        var $ul = $outline, $li, $child
-        for (var l = 1; l < level; l++) {
-          $li = $ul.lastChild || $ul.appendChild(document.createElement('li'))
-          $child = $li.lastChild || {}
-          $ul = $child.tagName === 'UL'
-            ? $child
-            : $li.appendChild(document.createElement('ul'))
-        }
-        var $topic = $ul
-          .appendChild(document.createElement('li'))
-          .appendChild(document.createElement('a'))
-        if (options.useInnerHTML) {
-          $topic.innerHTML = $h.innerHTML
-          Array.from($topic.querySelectorAll(anchorSel)).forEach($child => {
-            $child.parentNode.removeChild($child)
-          })
-        } else {
-          $topic.innerText = $h.innerText
-        }
-        $topic.href = `#${$h.querySelector(anchorSel).id}`
-      })
+				buildToC($outline, null, 0, $headers)
 
-      // find all sublists with one item and replace with contents
-      Array.from($container.querySelectorAll('ul')).forEach($ul => {
-        var $parent = $ul.parentNode
-        var $li = $ul.firstChild
-        var $child = $li.firstChild
-        if ($li !== $ul.lastChild || $child.tagName !== 'UL') return
-        while ($child) {
-          $parent.insertBefore($child, $ul.nextSibling) // inserts to end of list if $ul.nextSibling is null
-          $child = $child.nextSibling
-        }
-        $parent.removeChild($ul)
-      })
+				$article.insertBefore($container, $article.firstChild)
+			})
 
-      $md.insertBefore($container, $md.firstChild)
-    })
-  })
+		function buildToC(parent, lastloc, loc, context) {
+			if (loc >= context.length) return
+
+			if (!lastloc || context[loc].tagName === context[lastloc].tagName) {
+				const $li = document.createElement('li')
+				const $topic = $li.appendChild(document.createElement('a'))
+				setTopicContent($topic, context[loc])
+
+				parent.appendChild($li)
+
+				buildToC(parent, lastloc || loc, loc + 1, context)
+			} else if (getHeaderLevel(context[loc]) > getHeaderLevel(context[lastloc])) {
+				const $ul = document.createElement('ul')
+				parent.lastChild.appendChild($ul)
+
+				buildToC($ul, null, loc, context)
+			} else if (parent.parentNode) {
+				buildToC(parent.parentNode, lastloc - 1, loc, context)
+			}
+		}
+
+		function setTopicContent($topic, $h) {
+			if (options.useInnerHTML) {
+				$topic.innerHTML = $h.innerHTML
+				// remove external link in header html, just pure navigation
+				$topic.querySelectorAll(anchorSelector)
+					.forEach($child => {
+						$child.parentNode.removeChild($child)
+					})
+			} else {
+				$topic.innerText = $h.innerText
+			}
+
+			$topic.href = `#${$h.querySelector(anchorSelector).id}`
+		}
+	})
+
 })(this)
