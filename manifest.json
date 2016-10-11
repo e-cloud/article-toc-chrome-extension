@@ -1,16 +1,22 @@
 {
   "manifest_version": 2,
-  "name": "Github Markdown Outline Extension",
-  "description": "Displays a clickable outline of all topic headers for markdown documents on Github",
+  "name": "Article ToC Chrome Extension",
+  "description": "Displays a clickable outline of all topic headers for articles",
   "version": "1.4.2",
-  "homepage_url": "https://github.com/dbkaplun/github-markdown-outline-extension",
-  "author": "Dan Kaplun <dbkaplun@gmail.com>",
-  "icons": {},
-  "content_scripts": [{
-    "matches": ["https://github.com/*"],
-    "js": ["index.js"],
-    "css": ["index.css"]
-  }],
+  "homepage_url": "https://github.com/e-cloud/article-toc-chrome-extension",
+  "author": [
+    "e-cloud <saintscott119@gmail.com>",
+    "Dan Kaplun <dbkaplun@gmail.com>"
+  ],
+  "icons": { },
+  "content_scripts": [
+    {
+      "matches": ["https://github.com/*"],
+      "js": ["index.js"],
+      "css": ["index.css"],
+      "run_at": "document_start"
+    }
+  ],
   "options_ui": {
     "page": "options.html",
     "chrome_style": true

@@ -69,3 +69,4 @@ jspm_packages
 .vscode
 .DS_store
 
+lib

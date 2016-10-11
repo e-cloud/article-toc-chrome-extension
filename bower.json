@@ -1,0 +1,28 @@
+{
+  "name": "article-toc-chrome-extension",
+  "main": "index.js",
+  "homepage": "https://github.com/e-cloud/article-toc-chrome-extension",
+  "authors": [
+    "e-cloud <saintscott119@gmail.com>",
+    "Dan Kaplun <dbkaplun@gmail.com>"
+  ],
+  "description": "Displays a clickable outline of all topic headers for articles",
+  "keywords": [
+    "toc",
+    "chrome",
+    "extension"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "gumshoe": "^3.3.1",
+    "smooth-scroll.js": "^10.1.0"
+  }
+}
