@@ -1,75 +1,153 @@
-(root => {
-	const HeaderRegExp = /h(\d)/i
+const headerSelector = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].join(', ')
+const anchorSelector = 'a[id]'
 
-	function getHeaderLevel($h) {
-		const level = parseInt((($h.tagName).match(HeaderRegExp))[1], 10)
-		return isNaN(level) ? undefined : level
-	}
+chrome.storage.sync.get({
+    useInnerHTML: true
+}, (options) => {
+    window.addEventListener('load', function () {
+        document.querySelectorAll('article')
+            .forEach(($article) => {
+                const $headers = Array.from($article.querySelectorAll(headerSelector))
+                const $container = buildAll($headers)
+                $article.insertBefore($container, $article.firstChild)
+            })
+    })
 
-	const headerSelector = new Array(6)
-		.fill(1)
-		.reduce((acc, val, i) => {
-			acc.push('h' + i)
-			return acc
-		}, [])
-		.join(', ')
+    function buildAll($headers) {
+        const $container = document.createElement('div')
+        $container.classList.add('__article-toc-container')
 
-	const anchorSelector = 'a[id]'
+        const $outline = document.createElement('ul')
+        $outline.classList.add('__article-toc')
+        $container.appendChild($outline)
 
-	root.chrome.storage.sync.get({
-		useInnerHTML: true
-	}, (options) => {
-		document.querySelectorAll('.markdown-body')
-			.forEach(($article) => {
-				const $headers = Array.from($article.querySelectorAll(headerSelector))
+        buildToC($outline, 0, -1, [-1], $headers)
 
-				const $container = document.createElement('div')
-				$container.classList.add('__github-markdown-toc-container')
+        preventParentScroll($container)
 
-				const $outline = document.createElement('ul')
-				$outline.classList.add('__github-markdown-toc')
-				$container.appendChild($outline)
+        return $container
+    }
 
-				buildToC($outline, null, 0, $headers)
+    /**
+     *
+     * @param container the ToC direct container
+     * @param currentloc the current location of the header list in traversal
+     * @param lastloc the last location of header list, may change in traversal due to jumping from high to low
+     * @param parentLocStack a stack that store the ancestors' loc
+     * @param headerList
+     */
+    function buildToC(container, currentloc, lastloc, parentLocStack, headerList) {
+        if (currentloc >= headerList.length) return
 
-				$article.insertBefore($container, $article.firstChild)
-			})
+        const currentLevel = getHeaderLevel(headerList[currentloc])
+        let lastLevel
+        if (lastloc >= 0) {
+            lastLevel = getHeaderLevel(headerList[lastloc])
+        }
 
-		function buildToC(parent, lastloc, loc, context) {
-			if (loc >= context.length) return
+        // when first init
+        // or current is same as last
+        // or current is lower than last but higher than parent,
+        // directly append to current parent
+        if (currentloc === 0
+            || currentLevel == lastLevel
+            || (
+                currentLevel < lastLevel
+                && getHeaderLevel(headerList[last(parentLocStack)]) < currentLevel
+            )
+        ) {
+            container.appendChild(createItem(headerList[currentloc], options))
+            buildToC(container, currentloc + 1, currentloc, parentLocStack, headerList)
+        }
 
-			if (!lastloc || context[loc].tagName === context[lastloc].tagName) {
-				const $li = document.createElement('li')
-				const $topic = $li.appendChild(document.createElement('a'))
-				setTopicContent($topic, context[loc])
+        // when current is higher than last, create a sub-container in last, then append the current
+        else if (currentLevel > lastLevel) {
+            const $ul = document.createElement('ul')
+            container.lastChild.appendChild($ul)
 
-				parent.appendChild($li)
+            // push a track point into track stack
+            parentLocStack.push(currentloc - 1)
 
-				buildToC(parent, lastloc || loc, loc + 1, context)
-			} else if (getHeaderLevel(context[loc]) > getHeaderLevel(context[lastloc])) {
-				const $ul = document.createElement('ul')
-				parent.lastChild.appendChild($ul)
+            buildToC($ul, currentloc, currentloc, parentLocStack, headerList)
+        }
 
-				buildToC($ul, null, loc, context)
-			} else if (parent.parentNode) {
-				buildToC(parent.parentNode, lastloc - 1, loc, context)
-			}
-		}
+        // current is lower than last but also lower than or equal to parent,
+        // rollback the last level loc track point
+        else if (currentLevel < lastLevel) {
+            const newlastloc = parentLocStack.pop()
 
-		function setTopicContent($topic, $h) {
-			if (options.useInnerHTML) {
-				$topic.innerHTML = $h.innerHTML
-				// remove external link in header html, just pure navigation
-				$topic.querySelectorAll(anchorSelector)
-					.forEach($child => {
-						$child.parentNode.removeChild($child)
-					})
-			} else {
-				$topic.innerText = $h.innerText
-			}
+            // reach to top container,
+            // this happen when an article starts with high level header but lower level occurs later
+            if (last(parentLocStack) === -1) {
+                // push a track point into track stack, to create a new track
+                parentLocStack.push(currentloc)
+                buildToC(container, currentloc, currentloc, parentLocStack, headerList)
+            }
+            // still inside the toc child scope, find its grandparent container
+            else {
+                buildToC(container.parentNode.parentNode, currentloc, newlastloc, parentLocStack, headerList)
+            }
+        }
+    }
+})
 
-			$topic.href = `#${$h.querySelector(anchorSelector).id}`
-		}
-	})
+function last(list) {
+    return list[list.length - 1]
+}
 
-})(this)
+function createItem(currentHeader, options) {
+    const $li = document.createElement('li')
+    const $topic = $li.appendChild(document.createElement('a'))
+    $li.classList.add(`__toc-${currentHeader.tagName.toLowerCase()}`)
+    setTopicContent($topic, currentHeader, options.useInnerHTML)
+    return $li
+}
+
+function getHeaderLevel($h) {
+    if ($h.tagName.toLowerCase()[0] !== 'h') {
+        return -1
+    }
+    return parseInt($h.tagName.slice(1), 10)
+}
+
+function preventParentScroll(element) {
+    element.addEventListener('wheel', function (event) {
+        event.currentTarget.scrollTop -= (event.wheelDeltaY || event.wheelDelta || 0);
+        event.preventDefault();
+    }, true)
+}
+
+function enableDetectingHistoryState() {
+    function decorateHistory(type) {
+        var orig = history[type];
+        return function () {
+            var rv = orig.apply(this, arguments);
+            var e = new Event(type);
+            e.arguments = arguments;
+            window.dispatchEvent(e);
+            return rv;
+        };
+    }
+
+    history.pushState = decorateHistory('pushState')
+    history.replaceState = decorateHistory('replaceState');
+}
+
+function setTopicContent($topic, $h, useInnerHTML) {
+    if (useInnerHTML) {
+        $topic.innerHTML = $h.innerHTML
+        // remove external link in header html, just pure navigation
+        $topic.querySelectorAll(anchorSelector)
+            .forEach($child => {
+                $child.parentNode.removeChild($child)
+            })
+    } else {
+        $topic.innerText = $h.innerText
+    }
+
+    $topic.href = `#${$h.querySelector(anchorSelector).id}`
+}
+
+function getUserOption() {
+
+}
