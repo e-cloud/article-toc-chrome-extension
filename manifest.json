@@ -13,12 +13,13 @@
     {
       "matches": ["https://github.com/*"],
       "js": ["index.js"],
-      "css": ["index.css"],
+      "css": ["sample/toc.css"],
       "run_at": "document_start"
     }
   ],
   "options_ui": {
     "page": "options.html",
+    "open_in_tab": true,
     "chrome_style": true
   },
   "permissions": [

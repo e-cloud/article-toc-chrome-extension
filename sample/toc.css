@@ -1,4 +1,4 @@
-.__github-markdown-toc-container{
+.__article-toc-container {
 	position: fixed;
 	top: 24vh;
 	background: white;
@@ -10,3 +10,10 @@
 	bottom: 0;
 	overflow: auto;
 }
+
+.__article-toc .__toc-h1 { font-size: 18px; }
+.__article-toc .__toc-h2 { font-size: 17px; }
+.__article-toc .__toc-h3 { font-size: 16px; }
+.__article-toc .__toc-h4 { font-size: 14px; }
+.__article-toc .__toc-h5 { font-size: 13px; }
+.__article-toc .__toc-h6 { font-size: 12px; }

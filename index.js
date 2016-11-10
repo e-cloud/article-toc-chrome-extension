@@ -138,8 +138,14 @@ function setTopicContent($topic, $h, useInnerHTML) {
         $topic.innerHTML = $h.innerHTML
         // remove external link in header html, just pure navigation
         $topic.querySelectorAll(anchorSelector)
-            .forEach($child => {
-                $child.parentNode.removeChild($child)
+            .forEach($anchor => {
+                if($anchor.innerText){
+                    var span = document.createElement('span')
+                    span.innerHTML = $anchor.innerHTML
+                    $anchor.parentNode.replaceChild(span, $anchor)
+                } else {
+                    $anchor.parentNode.removeChild($anchor)
+                }
             })
     } else {
         $topic.innerText = $h.innerText
