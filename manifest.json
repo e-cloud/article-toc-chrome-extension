@@ -29,6 +29,13 @@
     "chrome_style": true
   },
   "permissions": [
-    "storage"
-  ]
+    "storage",
+    "tabs",
+    "activeTab"
+  ],
+  "background": {
+    "scripts": [
+      "hot-reload.js"
+    ]
+  }
 }
