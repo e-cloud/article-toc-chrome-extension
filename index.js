@@ -1,5 +1,6 @@
 const headerSelector = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].join(', ')
 const anchorSelector = 'a[id]'
+let headerUUID = 0
 
 chrome.storage.sync.get({
     useInnerHTML: true
@@ -8,6 +9,7 @@ chrome.storage.sync.get({
         document.querySelectorAll('article')
             .forEach(($article) => {
                 const $headers = Array.from($article.querySelectorAll(headerSelector))
+                createHeaderIdIfNecessary($headers)
                 const $container = buildAll($headers)
                 $article.insertBefore($container, $article.firstChild)
             })
@@ -91,6 +93,15 @@ chrome.storage.sync.get({
     }
 })
 
+function createHeaderIdIfNecessary(headers) {
+    headers.forEach((header) => {
+        if (!header.id) {
+            header.id = 'atc-custom-header-id-' + headerUUID
+            headerUUID += 1
+        }
+    })
+}
+
 function last(list) {
     return list[list.length - 1]
 }
@@ -119,10 +130,10 @@ function preventParentScroll(element) {
 
 function enableDetectingHistoryState() {
     function decorateHistory(type) {
-        var orig = history[type];
+        const orig = history[type];
         return function () {
-            var rv = orig.apply(this, arguments);
-            var e = new Event(type);
+            const rv = orig.apply(this, arguments);
+            const e = new Event(type);
             e.arguments = arguments;
             window.dispatchEvent(e);
             return rv;
@@ -139,8 +150,8 @@ function setTopicContent($topic, $h, useInnerHTML) {
         // remove external link in header html, just pure navigation
         $topic.querySelectorAll(anchorSelector)
             .forEach($anchor => {
-                if($anchor.innerText){
-                    var span = document.createElement('span')
+                if ($anchor.innerText) {
+                    const span = document.createElement('span')
                     span.innerHTML = $anchor.innerHTML
                     $anchor.parentNode.replaceChild(span, $anchor)
                 } else {
@@ -151,7 +162,7 @@ function setTopicContent($topic, $h, useInnerHTML) {
         $topic.innerText = $h.innerText
     }
 
-    $topic.href = `#${$h.querySelector(anchorSelector).id}`
+    $topic.href = `#${($h.querySelector(anchorSelector) || $h).id}`
 }
 
 function getUserOption() {

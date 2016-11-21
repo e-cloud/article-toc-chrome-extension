@@ -15,7 +15,8 @@ When you visit any page with article, this extension will automatically display 
 To see all available options, copy and paste the following URL into Chrome: `chrome://extensions/?options=gccinjjdbfdkkkebfbeipopijjfohfgj`
 
 ## feature
-* [ ] domain whitelist. let you decide which website can display the toc for any article
+* [x] auto-generate ids for headers without id
+* [ ] domain white-list. let you decide which website can display the toc for any article
     * [ ] add specific article container selector for precise recognition, for those website with articles not placed inside `<article>` tag
 * [ ] slideable ToC
 * [ ] resizeable ToC
