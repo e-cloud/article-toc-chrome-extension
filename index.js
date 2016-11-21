@@ -81,7 +81,7 @@ chrome.storage.sync.get({
             if (last(parentLocStack) === -1) {
                 // push a track point into track stack, to create a new track
                 parentLocStack.push(currentloc)
-                buildToC(container, currentloc, currentloc, parentLocStack, headerList)
+                buildToC(container.parentNode.parentNode, currentloc, currentloc, parentLocStack, headerList)
             }
             // still inside the toc child scope, find its grandparent container
             else {
