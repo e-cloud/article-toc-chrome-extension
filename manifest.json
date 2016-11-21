@@ -8,12 +8,18 @@
     "e-cloud <saintscott119@gmail.com>",
     "Dan Kaplun <dbkaplun@gmail.com>"
   ],
-  "icons": { },
+  "icons": {},
   "content_scripts": [
     {
-      "matches": ["https://github.com/*"],
-      "js": ["index.js"],
-      "css": ["sample/toc.css"],
+      "matches": [
+        "*://*/*"
+      ],
+      "js": [
+        "index.js"
+      ],
+      "css": [
+        "toc.css"
+      ],
       "run_at": "document_start"
     }
   ],

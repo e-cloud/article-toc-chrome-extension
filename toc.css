@@ -9,6 +9,7 @@
 	width: 300px;
 	bottom: 0;
 	overflow: auto;
+	z-index: 1;
 }
 
 .__article-toc .__toc-h1 { font-size: 18px; }
