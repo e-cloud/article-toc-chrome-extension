@@ -2,8 +2,6 @@ Article Toc Chrome Extension
 ======
 Displays a clickable ToC of all topic headers for an article(first article in the page for now).
 
-![Screenshot](https://raw.githubusercontent.com/dbkaplun/github-markdown-outline-extension/master/screenshot.png)
-
 ## Installation
 
 Install via [Chrome Web Store](https://chrome.google.com/webstore/detail/github-markdown-outline-e/gccinjjdbfdkkkebfbeipopijjfohfgj).
@@ -18,8 +16,10 @@ To see all available options, copy and paste the following URL into Chrome: `chr
 * [x] auto-generate ids for headers without id
 * [ ] domain white-list. let you decide which website can display the toc for any article
     * [ ] add specific article container selector for precise recognition, for those website with articles not placed inside `<article>` tag
+    * [ ] add to whitelist via some simple operation. then render the view.
 * [ ] slideable ToC
 * [ ] resizeable ToC
+* [ ] collapsible sub headers
 * [ ] auto resize with scroll position. (github specific)
 * [ ] place at right/left corner in the window viewport(fixed position)
 * [ ] manual refresh control button
