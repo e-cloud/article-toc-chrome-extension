@@ -34,3 +34,27 @@ To see all available options, copy and paste the following URL into Chrome: `chr
 * Click the *Load unpacked extension...* button
 * Select the `article-toc-chrome-extension` directory you just cloned
 * Make sure the extension was added by refreshing this page
+
+## Build Setup
+
+``` bash
+# install dependencies
+npm install
+
+# serve with hot reload at localhost:8080
+npm run dev
+
+# build for production with minification
+npm run build
+
+# run unit tests
+npm run unit
+
+# run e2e tests
+npm run e2e
+
+# run all tests
+npm test
+```
+
+For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
