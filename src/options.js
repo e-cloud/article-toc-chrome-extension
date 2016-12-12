@@ -10,7 +10,7 @@
     var initStatusTextContent = $status.textContent
     var statusShowTimeout
 
-    function saveOptions () {
+    function saveOptions() {
       chrome.storage.sync.set({
         useInnerHTML: $useInnerHTML.checked,
         float: $float.checked,
@@ -22,7 +22,7 @@
       })
     }
 
-    function restoreOptions () {
+    function restoreOptions() {
       chrome.storage.sync.get({
         // default values
         useInnerHTML: true,

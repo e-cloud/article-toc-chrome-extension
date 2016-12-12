@@ -26,12 +26,13 @@ module.exports = {
     }],
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
-    'semi': 0,
+    semi: 0,
     'no-use-before-define': ['error', { 'functions': false }],
     'brace-style': ['error', 'stroustrup', { 'allowSingleLine': true }],
     'comma-dangle': 0,
     quotes: ['error', 'single'],
-    'quote-props': ['error', 'as-needed']
+    'quote-props': ['error', 'as-needed'],
+    'prefer-arrow-callback': 0
   },
   'env': {
     'browser': true,
