@@ -20,7 +20,7 @@ function buildPluginContainer() {
 function initApp($container, treeList) {
   const instance = new Vue({
     el: $container,
-    template: '<App/>',
+    template: '<App :app-data="treeList"/>',
     components: { App },
     data() {
       return {

@@ -1,7 +1,10 @@
 <template>
   <div class="toc-panel">
     <TocPanelHeader></TocPanelHeader>
-    <TreeView></TreeView>
+    <ul class="toc-list">
+      <TreeView v-for="(rootNode, index) in treeList" :data-node="rootNode">
+      </TreeView>
+    </ul>
     <TocPanelFooter></TocPanelFooter>
   </div>
 </template>
@@ -13,6 +16,11 @@
 
   export default {
     name: 'toc-panel',
+    props: {
+      treeList: {
+        type: Array
+      }
+    },
     components: {
       TreeView,
       TocPanelFooter,
@@ -28,21 +36,5 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  h1, h2 {
-    font-weight: normal;
-  }
 
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-
-  li {
-    display: inline-block;
-    margin: 0 10px;
-  }
-
-  a {
-    color: #42b983;
-  }
 </style>

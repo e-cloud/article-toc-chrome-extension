@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <TocPanel></TocPanel>
+    <TocPanel :tree-list="appData"></TocPanel>
   </div>
 </template>
 
@@ -9,6 +9,7 @@
   import TocPanel from './components/TocPanel';
 
   export default {
+    props: ['appData'],
     name: 'app',
     components: {
       TocPanel,
