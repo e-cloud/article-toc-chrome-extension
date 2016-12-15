@@ -17,15 +17,28 @@
       }
     },
     name: 'TreeView',
-    data() {
-      return {
-        getTitle() {
-          if (this.dataNode && this.dataNode.data.header) {
-            return this.dataNode.data.header.innerText
-          }
-          return ''
+    computed: {
+      header() {
+        if (this.dataNode && this.dataNode.data.header) {
+          return this.dataNode.data.header
         }
+        return null
+      },
+      title() {
+        if (this.header) {
+          return this.header.innerText
+        }
+        return ''
+      },
+      href() {
+        if (this.header) {
+          return this.header.id
+        }
+        return ''
       }
+    },
+    data() {
+      return {}
     },
   };
 </script>
