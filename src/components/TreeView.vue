@@ -1,10 +1,8 @@
 <template>
   <li class="tree-view">
-    <div>{{ getTitle() }}</div>
+    <a :href="'#' + href">{{ title }}</a>
     <ul class="sub-tree-list" v-if="dataNode.children">
-      <li v-for="(treeNode, index) in dataNode.children">
-        <TreeView :data-node="treeNode"></TreeView>
-      </li>
+      <TreeView v-for="(treeNode, index) in dataNode.children" :data-node="treeNode"></TreeView>
     </ul>
   </li>
 </template>
@@ -34,5 +32,7 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+  .tree-view {
+    margin-left: 1.5em;
+  }
 </style>

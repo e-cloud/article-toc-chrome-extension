@@ -1,6 +1,6 @@
 <template>
   <div class="toc-panel-header">
-    footer
+    header
   </div>
 </template>
 

@@ -25,6 +25,7 @@ To see all available options, copy and paste the following URL into Chrome: `chr
 * [ ] manual refresh control button
 * [ ] auto-detect page transition(page load, page history change, ...) for auto generation
 * [x] display origin html of every captured header(`useInnerHtml`). This is inherit from the [upstream repo](https://github.com/dbkaplun/github-markdown-outline-extension)
+* [ ] show hidden/empty header
 
 ## Development
 

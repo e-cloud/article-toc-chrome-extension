@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
     <TocPanel :tree-list="appData"></TocPanel>
   </div>
 </template>
@@ -22,8 +21,17 @@
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-align: center;
     color: #2c3e50;
     margin-top: 60px;
+  }
+  #app {
+    position: fixed;
+    right: 0;
+    height: 500px;
+    bottom: 0;
+    /* overflow: auto; */
+    background-color: white;
+    border: 1px solid grey;
+    box-shadow: 0 0 10px grey;
   }
 </style>

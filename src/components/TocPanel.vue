@@ -2,8 +2,7 @@
   <div class="toc-panel">
     <TocPanelHeader></TocPanelHeader>
     <ul class="toc-list">
-      <TreeView v-for="(rootNode, index) in treeList" :data-node="rootNode">
-      </TreeView>
+      <TreeView v-for="(rootNode, index) in treeList" :data-node="rootNode"></TreeView>
     </ul>
     <TocPanelFooter></TocPanelFooter>
   </div>
@@ -36,5 +35,7 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+  .toc-list > .tree-view {
+    list-style-type: none;
+  }
 </style>
