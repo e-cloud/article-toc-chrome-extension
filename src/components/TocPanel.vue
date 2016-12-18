@@ -35,6 +35,10 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  .toc-list {
+    height: 500px;
+    overflow: auto;
+  }
   .toc-list > .tree-view {
     list-style-type: none;
   }

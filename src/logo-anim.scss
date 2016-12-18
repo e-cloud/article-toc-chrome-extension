@@ -1,0 +1,68 @@
+// variate from http://codepen.io/jotavejv/pen/KgrXEa/ of João Victor
+.logo-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 220px;
+  height: 220px;
+}
+
+$outer: #2fb982;
+$inner: #34475f;
+svg {
+  width: 100%;
+  height: auto;
+}
+
+#outer, #inner {
+  stroke-width: .5;
+  stroke: $outer;
+}
+
+#outer {
+  stroke-dasharray: 285.5394592285156 285.5394592285156;
+  stroke-dashoffset: 285.5394592285156;
+  animation: outer 2s 1s ease forwards;
+}
+
+#inner {
+  stroke-dasharray: 165.98031616210938 165.98031616210938;
+  stroke-dashoffset: 165.98031616210938;
+  animation: inner 2s 1s ease forwards;
+}
+
+@keyframes outer {
+  50% {
+    stroke-dashoffset: 0;
+    stroke-width: .5;
+    fill: #fff;
+  }
+  75%, 100% {
+    stroke-dashoffset: 0;
+    fill: $outer;
+    stroke-width: 0;
+  }
+}
+
+@keyframes inner {
+  50% {
+    stroke-dashoffset: 0;
+    stroke-width: .5;
+    fill: #fff;
+  }
+  75%, 100% {
+    stroke-dashoffset: 0;
+    fill: $inner;
+    stroke-width: 0;
+  }
+}
+
+@keyframes text {
+  to {
+    transform: translateY(-10px);
+    opacity: 1;
+  }
+}

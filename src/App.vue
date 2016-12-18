@@ -22,12 +22,11 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: #2c3e50;
-    margin-top: 60px;
   }
   #app {
     position: fixed;
+    z-index: 1500;
     right: 0;
-    height: 500px;
     bottom: 0;
     /* overflow: auto; */
     background-color: white;
