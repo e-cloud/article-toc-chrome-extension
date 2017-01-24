@@ -10,6 +10,8 @@
 <script>
   import TreeNode from '../model/TreeNode'
 
+  const anchorSelector = 'a[id]'
+
   export default {
     props: {
       dataNode: {
@@ -32,7 +34,7 @@
       },
       href() {
         if (this.header) {
-          return this.header.id
+          return this.header.querySelector(anchorSelector).id || this.header.id
         }
         return ''
       }
