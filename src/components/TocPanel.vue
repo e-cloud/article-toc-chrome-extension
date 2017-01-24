@@ -1,15 +1,15 @@
 <template>
   <div class="toc-panel">
     <TocPanelHeader></TocPanelHeader>
-    <ul class="toc-list">
-      <TreeView v-for="(rootNode, index) in treeList" :data-node="rootNode"></TreeView>
+    <ul class="toc-list" v-prevent-scroll>
+      <TreeViewRoot v-for="(rootNode, index) in treeList" :data-node="rootNode"></TreeViewRoot>
     </ul>
     <TocPanelFooter></TocPanelFooter>
   </div>
 </template>
 
 <script>
-  import TreeView from './TreeView'
+  import TreeViewRoot from './TreeViewRoot'
   import TocPanelFooter from './TocPanelFooter'
   import TocPanelHeader from './TocPanelHeader'
 
@@ -21,7 +21,7 @@
       }
     },
     components: {
-      TreeView,
+      TreeViewRoot,
       TocPanelFooter,
       TocPanelHeader
     },
