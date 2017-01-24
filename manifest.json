@@ -12,13 +12,13 @@
   "content_scripts": [
     {
       "matches": [
-        "*://*/*"
+        "https://github.com/*"
       ],
       "js": [
-        "index.js"
+        "dist/static/js/app.js"
       ],
       "css": [
-        "toc.css"
+        "dist/static/css/app.css"
       ],
       "run_at": "document_start"
     }
@@ -35,7 +35,7 @@
   ],
   "background": {
     "scripts": [
-      "hot-reload.js"
+      "src/hot-reload.js"
     ]
   }
 }
