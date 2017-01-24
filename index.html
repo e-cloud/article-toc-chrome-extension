@@ -964,304 +964,171 @@
 
 
               <div id="readme" class="readme blob instapaper_body">
-                <article class="markdown-body entry-content" itemprop="text">
-                  <h1><a id="user-content-babel-user-handbook" class="anchor" href="#babel-user-handbook"
-                         aria-hidden="true">
-                    <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16"
-                         width="16">
-                      <path fill-rule="evenodd"
-                            d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
-                    </svg>
-                  </a>Babel User Handbook
-                  </h1>
+                <article class="markdown-body entry-content" itemprop="text"><h1><a id="user-content-babel-用户手册" class="anchor" href="#babel-用户手册" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Babel 用户手册</h1>
 
-                  <p>This document covers everything you ever wanted to know about using
-                    <a href="https://babeljs.io">Babel</a> and related tooling.</p>
+                  <p>这本手册涵盖了关于 <a href="https://babeljs.io">Babel</a> 的使用及其相关工具的内容。</p>
 
-                  <p><a href="http://creativecommons.org/licenses/by/4.0/"><img
-                    src="https://camo.githubusercontent.com/54c2f54bd84c53f2a12f4c25e3e2701bb26bf844/68747470733a2f2f6c6963656e7365627574746f6e732e6e65742f6c2f62792f342e302f38307831352e706e67"
-                    alt="cc-by-4.0" data-canonical-src="https://licensebuttons.net/l/by/4.0/80x15.png"
-                    style="max-width:100%;"></a></p>
+                  <p><a href="http://creativecommons.org/licenses/by/4.0/"><img src="https://camo.githubusercontent.com/54c2f54bd84c53f2a12f4c25e3e2701bb26bf844/68747470733a2f2f6c6963656e7365627574746f6e732e6e65742f6c2f62792f342e302f38307831352e706e67" alt="cc-by-4.0" data-canonical-src="https://licensebuttons.net/l/by/4.0/80x15.png" style="max-width:100%;"></a></p>
 
-                  <p>This handbook is available in other languages, see the <a
-                    href="/thejameskyle/babel-handbook/blob/master/README.md">README</a> for
-                    a complete list.</p>
+                  <p>这本手册提供了多种语言的版本，查看 <a href="/thejameskyle/babel-handbook/blob/master/README.md">自述文件</a> 里的完整列表。</p>
 
-                  <h1><a id="user-content-table-of-contents" class="anchor" href="#table-of-contents"
-                         aria-hidden="true">
-                    <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16"
-                         width="16">
-                      <path fill-rule="evenodd"
-                            d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
-                    </svg>
-                  </a>Table of Contents
-                  </h1>
+                  <h1><a id="user-content-目录" class="anchor" href="#目录" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>目录</h1>
 
                   <ul>
-                    <li><a href="#toc-introduction">Introduction</a></li>
-                    <li><a href="#toc-setting-up-babel">Setting up Babel</a>
+                    <li><a href="#toc-introduction">介绍</a></li>
+                    <li><a href="#toc-setting-up-babel">安装 Babel</a>
 
                       <ul>
-                        <li><a href="#toc-babel-cli"><code>babel-cli</code></a>
-
-                          <ul>
-                            <li><a href="#toc-running-babel-cli-from-within-a-project">Running Babel CLI from within a
-                              project</a></li>
-                          </ul>
-                        </li>
+                        <li><a href="#toc-babel-cli"><code>babel-cli</code></a></li>
+                        <li><a href="#toc-running-babel-cli-from-within-a-project">在项目内运行 Babel CLI</a></li>
                         <li><a href="#toc-babel-register"><code>babel-register</code></a></li>
                         <li><a href="#toc-babel-node"><code>babel-node</code></a></li>
                         <li><a href="#toc-babel-core"><code>babel-core</code></a></li>
-                      </ul>
-                    </li>
-                    <li><a href="#toc-configuring-babel">Configuring Babel</a>
+                      </ul></li>
+                    <li><a href="#toc-configuring-babel">配置 Babel</a>
 
                       <ul>
                         <li><a href="#toc-babelrc"><code>.babelrc</code></a></li>
                         <li><a href="#toc-babel-preset-es2015"><code>babel-preset-es2015</code></a></li>
                         <li><a href="#toc-babel-preset-react"><code>babel-preset-react</code></a></li>
                         <li><a href="#toc-babel-preset-stage-x"><code>babel-preset-stage-x</code></a></li>
-                      </ul>
-                    </li>
-                    <li><a href="#toc-executing-babel-generated-code">Executing Babel-generated code</a>
+                      </ul></li>
+                    <li><a href="#toc-executing-babel-generated-code">执行 Babel 生成的代码</a>
 
                       <ul>
                         <li><a href="#toc-babel-polyfill"><code>babel-polyfill</code></a></li>
                         <li><a href="#toc-babel-runtime"><code>babel-runtime</code></a></li>
-                      </ul>
-                    </li>
-                    <li><a href="#toc-configuring-babel-advanced">Configuring Babel (Advanced)</a>
+                      </ul></li>
+                    <li><a href="#toc-configuring-babel-advanced">配置 Babel（进阶）</a>
 
                       <ul>
-                        <li><a href="#toc-manually-specifying-plugins">Manually specifying plugins</a></li>
-                        <li><a href="#toc-plugin-options">Plugin options</a></li>
-                        <li><a href="#toc-customizing-babel-based-on-environment">Customizing Babel based on
-                          environment</a></li>
-                        <li><a href="#toc-making-your-own-preset">Making your own preset</a></li>
-                      </ul>
-                    </li>
-                    <li><a href="#toc-babel-and-other-tools">Babel and other tools</a>
+                        <li><a href="#toc-manually-specifying-plugins">手动指定插件</a></li>
+                        <li><a href="#toc-plugin-options">插件选项</a></li>
+                        <li><a href="#toc-customizing-babel-based-on-environment">基于环境自定义 Babel</a></li>
+                        <li><a href="#toc-making-your-own-preset">制作你自己的预设（preset）</a></li>
+                      </ul></li>
+                    <li><a href="#toc-babel-and-other-tools">Babel 和其他工具</a>
 
                       <ul>
-                        <li><a href="#toc-static-analysis-tools">Static analysis tools</a>
-
-                          <ul>
-                            <li><a href="#toc-linting">Linting</a></li>
-                            <li><a href="#toc-code-style">Code Style</a></li>
-                            <li><a href="#toc-documentation">Documentation</a></li>
-                          </ul>
-                        </li>
-                        <li><a href="#toc-frameworks">Frameworks</a>
-
-                          <ul>
-                            <li><a href="#toc-react">React</a></li>
-                          </ul>
-                        </li>
-                        <li><a href="#toc-text-editors-and-ides">Text Editors and IDEs</a></li>
-                      </ul>
-                    </li>
-                    <li><a href="#toc-debugging-babel">Debugging Babel</a></li>
-                    <li><a href="#toc-babel-support">Babel Support</a>
+                        <li><a href="#toc-static-analysis-tools">静态分析工具</a></li>
+                        <li><a href="#toc-linting">语法检查（Linting）</a></li>
+                        <li><a href="#toc-code-style">代码风格</a></li>
+                        <li><a href="#toc-documentation">文档</a></li>
+                        <li><a href="#toc-frameworks">框架</a></li>
+                        <li><a href="#toc-react">React</a></li>
+                        <li><a href="#toc-text-editors-and-ides">文本编辑器和 IDEs（集成开发环境）</a></li>
+                      </ul></li>
+                    <li><a href="#toc-debugging-babel">调试 Babel</a></li>
+                    <li><a href="#toc-babel-support">Babel 支持</a>
 
                       <ul>
-                        <li><a href="#toc-babel-forum">Babel Forum</a></li>
-                        <li><a href="#toc-babel-chat">Babel Chat</a></li>
-                        <li><a href="#toc-babel-issues">Babel Issues</a>
-
-                          <ul>
-                            <li><a href="#toc-creating-an-awesome-babel-bug-report">Creating an awesome Babel bug
-                              report</a></li>
-                          </ul>
-                        </li>
-                      </ul>
-                    </li>
+                        <li><a href="#toc-babel-forum">Babel 论坛</a></li>
+                        <li><a href="#toc-babel-chat">Babel 聊天</a></li>
+                        <li><a href="#toc-babel-issues">Babel 问题</a></li>
+                        <li><a href="#toc-creating-an-awesome-babel-bug-report">创建漂亮的 Babel 错误报告</a></li>
+                      </ul></li>
                   </ul>
 
-                  <h1><a id="user-content-introduction" class="anchor" href="#introduction" aria-hidden="true">
-                    <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16"
-                         width="16">
-                      <path fill-rule="evenodd"
-                            d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
-                    </svg>
-                  </a><a id="user-content-toc-introduction"></a>Introduction
-                  </h1>
+                  <h1><a id="user-content-介绍" class="anchor" href="#介绍" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a id="user-content-toc-introduction"></a>介绍</h1>
 
-                  <p>Babel is a generic multi-purpose compiler for JavaScript. Using Babel you can
-                    use (and create) the next generation of JavaScript, as well as the next
-                    generation of JavaScript tooling.</p>
+                  <p>Babel 是一个通用的多用途 JavaScript 编译器。通过 Babel 你可以使用（并创建）下一代的 JavaScript，以及下一代的 JavaScript 工具。</p>
 
-                  <p>JavaScript as a language is constantly evolving, with new specs and proposals
-                    coming out with new features all the time. Using Babel will allow you to use
-                    many of these features years before they are available everywhere.</p>
+                  <p>作为一种语言，JavaScript 在不断发展，新的标准／提案和新的特性层出不穷。 在得到广泛普及之前，Babel 能够让你提前（甚至数年）使用它们。</p>
 
-                  <p>Babel does this by compiling down JavaScript code written with the latest
-                    standards into a version that will work everywhere today. This process is known
-                    as source-to-source compiling, also known as transpiling.</p>
+                  <p>Babel 把用最新标准编写的 JavaScript 代码向下编译成可以在今天随处可用的版本。 这一过程叫做“源码到源码”编译， 也被称为转换编译（transpiling，是一个自造合成词，即转换＋编译。以下也简称为转译）。</p>
 
-                  <p>For example, Babel could transform the new ES2015 arrow function
-                    syntax from this:</p>
+                  <p>例如，Babel 能够将新的 ES2015 箭头函数语法：</p>
 
-                  <div class="highlight highlight-source-js">
-                    <pre><span class="pl-k">const</span> <span class="pl-c1">square</span> <span
-                      class="pl-k">=</span> <span class="pl-smi">n</span> <span class="pl-k">=&gt;</span> n <span
-                      class="pl-k">*</span> n;</pre>
-                  </div>
+                  <div class="highlight highlight-source-js"><pre><span class="pl-k">const</span> <span class="pl-c1">square</span> <span class="pl-k">=</span> <span class="pl-smi">n</span> <span class="pl-k">=&gt;</span> n <span class="pl-k">*</span> n;</pre></div>
 
-                  <p>Into the following:</p>
+                  <p>转译为：</p>
 
-                  <div class="highlight highlight-source-js"><pre><span class="pl-k">const</span> <span class="pl-c1">square</span> <span
-                    class="pl-k">=</span> <span class="pl-k">function</span> <span class="pl-en">square</span>(<span
-                    class="pl-smi">n</span>) {
+                  <div class="highlight highlight-source-js"><pre><span class="pl-k">const</span> <span class="pl-c1">square</span> <span class="pl-k">=</span> <span class="pl-k">function</span> <span class="pl-en">square</span>(<span class="pl-smi">n</span>) {
   <span class="pl-k">return</span> n <span class="pl-k">*</span> n;
-};</pre>
-                  </div>
+};</pre></div>
 
-                  <p>However, Babel can do much more than this as Babel has support for syntax
-                    extensions such as the JSX syntax for React and Flow syntax support for static
-                    type checking.</p>
+                  <p>不过 Babel 的用途并不止于此，它支持语法扩展，能支持像 React 所用的 JSX 语法，同时还支持用于静态类型检查的流式语法（Flow Syntax）。</p>
 
-                  <p>Further than that, everything in Babel is simply a plugin and anyone can go out
-                    and create their own plugins using the full power of Babel to do whatever
-                    they want.</p>
+                  <p>更重要的是，Babel 的一切都是简单的插件，谁都可以创建自己的插件，利用 Babel 的全部威力去做任何事情。</p>
 
-                  <p><em>Even further</em> than that, Babel is broken down into a number of core modules
-                    that anyone can use to build the next generation of JavaScript tooling.</p>
+                  <p><em>再进一步</em>，Babel 自身被分解成了数个核心模块，任何人都可以利用它们来创建下一代的 JavaScript 工具。</p>
 
-                  <p>Many people do too, the ecosystem that has sprung up around Babel is massive and
-                    very diverse. Throughout this handbook I'll be covering both how built-in Babel
-                    tools work as well as some useful things from around the community.</p>
+                  <p>已经有很多人都这样做了，围绕着 Babel 涌现出了非常大规模和多样化的生态系统。 在这本手册中，我将介绍如何使用 Babel 的内建工具以及一些来自于社区的非常有用的东西。</p>
 
                   <blockquote>
-                    <p><strong><em>For future updates, follow <a
-                      href="https://twitter.com/thejameskyle">@thejameskyle</a>
-                      on Twitter.</em></strong></p>
+                    <p><strong><em>在 Twitter 上关注 <a href="https://twitter.com/thejameskyle">@thejameskyle</a>，第一时间获取更新。</em></strong></p>
                   </blockquote>
 
                   <hr>
 
-                  <h1><a id="user-content-setting-up-babel" class="anchor" href="#setting-up-babel" aria-hidden="true">
-                    <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16"
-                         width="16">
-                      <path fill-rule="evenodd"
-                            d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
-                    </svg>
-                  </a><a id="user-content-toc-setting-up-babel"></a>Setting up Babel
-                  </h1>
+                  <h1><a id="user-content-安装-babel" class="anchor" href="#安装-babel" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a id="user-content-toc-setting-up-babel"></a>安装 Babel</h1>
 
-                  <p>Since the JavaScript community has no single build tool, framework, platform,
-                    etc., Babel has official integrations for all of the major tooling. Everything
-                    from Gulp to Browserify, from Ember to Meteor, no matter what your setup looks
-                    like there is probably an official integration.</p>
+                  <p>由于 JavaScript 社区没有统一的构建工具、框架、平台等等，因此 Babel 正式集成了对所有主流工具的支持。 从 Gulp 到 Browserify，从 Ember 到 Meteor，不管你的环境设置如何，Babel 都有正式的集成支持。</p>
 
-                  <p>For the purposes of this handbook, we're just going to cover the built-in ways
-                    of setting up Babel, but you can also visit the interactive
-                    <a href="http://babeljs.io/docs/setup">setup page</a> for all of the integrations.</p>
+                  <p>本手册的目的主要是介绍 Babel 内建方式的安装，不过你可以访问交互式的<a href="http://babeljs.io/docs/setup">安装页面</a>来查看其它的整合方式。</p>
 
                   <blockquote>
-                    <p><strong>Note:</strong> This guide is going to refer to command line tools like <code>node</code>
-                      and
-                      <code>npm</code>. Before continuing any further you should be comfortable with these
-                      tools.</p>
+                    <p><strong>注意：</strong> 本手册将涉及到一些命令行工具如 <code>node</code> 和 <code>npm</code>。在继续阅读之前请确保你已经熟悉这些工具了。</p>
                   </blockquote>
 
-                  <h2><a id="user-content-babel-cli" class="anchor" href="#babel-cli" aria-hidden="true">
-                    <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16"
-                         width="16">
-                      <path fill-rule="evenodd"
-                            d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
-                    </svg>
-                  </a><a id="user-content-toc-babel-cli"></a><code>babel-cli</code></h2>
+                  <h2><a id="user-content-babel-cli" class="anchor" href="#babel-cli" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a id="user-content-toc-babel-cli"></a><code>babel-cli</code></h2>
 
-                  <p>Babel's CLI is a simple way to compile files with Babel from the command line.</p>
+                  <p>Babel 的 CLI 是一种在命令行下使用 Babel 编译文件的简单方法。</p>
 
-                  <p>Let's first install it globally to learn the basics.</p>
+                  <p>让我们先全局安装它来学习基础知识。</p>
 
-                  <div class="highlight highlight-source-shell">
-                    <pre>$ npm install --global babel-cli</pre>
-                  </div>
+                  <div class="highlight highlight-source-shell"><pre>$ npm install --global babel-cli</pre></div>
 
-                  <p>We can compile our first file like so:</p>
+                  <p>我们可以这样来编译我们的第一个文件：</p>
 
-                  <div class="highlight highlight-source-shell">
-                    <pre>$ babel my-file.js</pre>
-                  </div>
+                  <div class="highlight highlight-source-shell"><pre>$ babel my-file.js</pre></div>
 
-                  <p>This will dump the compiled output directly into your terminal. To write it to
-                    a file we'll specify an <code>--out-file</code> or <code>-o</code>.</p>
+                  <p>这将把编译后的结果直接输出至终端。使用 <code>--out-file</code> 或着 <code>-o</code> 可以将结果写入到指定的文件。.</p>
 
                   <div class="highlight highlight-source-shell"><pre>$ babel example.js --out-file compiled.js
-<span class="pl-c"><span class="pl-c">#</span> or</span>
-$ babel example.js -o compiled.js</pre>
-                  </div>
+<span class="pl-c"><span class="pl-c">#</span> 或</span>
+$ babel example.js -o compiled.js</pre></div>
 
-                  <p>If we want to compile a whole directory into a new directory we can do so using
-                    <code>--out-dir</code> or <code>-d</code>.</p>
+                  <p>如果我们想要把一个目录整个编译成一个新的目录，可以使用 <code>--out-dir</code> 或者 <code>-d</code>。.</p>
 
                   <div class="highlight highlight-source-shell"><pre>$ babel src --out-dir lib
-<span class="pl-c"><span class="pl-c">#</span> or</span>
-$ babel src -d lib</pre>
-                  </div>
+<span class="pl-c"><span class="pl-c">#</span> 或</span>
+$ babel src -d lib</pre></div>
 
-                  <h3><a id="user-content-running-babel-cli-from-within-a-project" class="anchor"
-                         href="#running-babel-cli-from-within-a-project" aria-hidden="true">
-                    <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16"
-                         width="16">
-                      <path fill-rule="evenodd"
-                            d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
-                    </svg>
-                  </a><a id="user-content-toc-running-babel-cli-from-within-a-project"></a>Running Babel CLI from within
-                    a project
-                  </h3>
+                  <h3><a id="user-content-在项目内运行-babel-cli" class="anchor" href="#在项目内运行-babel-cli" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a id="user-content-toc-running-babel-cli-from-within-a-project"></a>在项目内运行 Babel CLI</h3>
 
-                  <p>While you <em>can</em> install Babel CLI globally on your machine, it's much better
-                    to install it <strong>locally</strong> project by project.</p>
+                  <p>尽管你<em>可以</em>把 Babel CLI 全局安装在你的机器上，但是按项目逐个安装在<strong>本地</strong>会更好。</p>
 
-                  <p>There are two primary reasons for this.</p>
+                  <p>有两个主要的原因。</p>
 
                   <ol>
-                    <li>Different projects on the same machine can depend on different versions of
-                      Babel allowing you to update one at a time.
-                    </li>
-                    <li>It means you do not have an implicit dependency on the environment you are
-                      working in. Making your project far more portable and easier to setup.
-                    </li>
+                    <li>在同一台机器上的不同项目或许会依赖不同版本的 Babel 并允许你有选择的更新。</li>
+                    <li>这意味着你对工作环境没有隐式依赖，这让你的项目有很好的可移植性并且易于安装。</li>
                   </ol>
 
-                  <p>We can install Babel CLI locally by running:</p>
+                  <p>要在（项目）本地安装 Babel CLI 可以运行：</p>
 
-                  <div class="highlight highlight-source-shell">
-                    <pre>$ npm install --save-dev babel-cli</pre>
-                  </div>
+                  <div class="highlight highlight-source-shell"><pre>$ npm install --save-dev babel-cli</pre></div>
 
                   <blockquote>
-                    <p><strong>Note:</strong> Since it's generally a bad idea to run Babel globally you may want
-                      to uninstall the global copy by running:</p>
+                    <p><strong>注意：</strong>因为全局运行 Babel 通常不是什么好习惯所以如果你想要卸载全局安装的 Babel 的话，可以运行：</p>
 
-                    <div class="highlight highlight-source-shell">
-                      <pre>$ npm uninstall --global babel-cli</pre>
-                    </div>
+                    <div class="highlight highlight-source-shell"><pre>$ npm uninstall --global babel-cli</pre></div>
                   </blockquote>
 
-                  <p>After that finishes installing, your <code>package.json</code> file should look like this:</p>
+                  <p>安装完成后，你的 <code>package.json</code> 应该如下所示：</p>
 
                   <div class="highlight highlight-source-json"><pre>{
-  <span class="pl-s"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span>: <span class="pl-s"><span
-                      class="pl-pds">"</span>my-project<span class="pl-pds">"</span></span>,
-  <span class="pl-s"><span class="pl-pds">"</span>version<span class="pl-pds">"</span></span>: <span class="pl-s"><span
-                      class="pl-pds">"</span>1.0.0<span class="pl-pds">"</span></span>,
+  <span class="pl-s"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>my-project<span class="pl-pds">"</span></span>,
+  <span class="pl-s"><span class="pl-pds">"</span>version<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>1.0.0<span class="pl-pds">"</span></span>,
   <span class="pl-s"><span class="pl-pds">"</span>devDependencies<span class="pl-pds">"</span></span>: {
-    <span class="pl-s"><span class="pl-pds">"</span>babel-cli<span class="pl-pds">"</span></span>: <span
-                      class="pl-s"><span class="pl-pds">"</span>^6.0.0<span class="pl-pds">"</span></span>
+    <span class="pl-s"><span class="pl-pds">"</span>babel-cli<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>^6.0.0<span class="pl-pds">"</span></span>
   }
-}</pre>
-                  </div>
+}</pre></div>
 
-                  <p>Now instead of running Babel directly from the command line we're going to put
-                    our commands in <strong>npm scripts</strong> which will use our local version.</p>
+                  <p>现在，我们不直接从命令行运行 Babel 了，取而代之我们将把运行命令写在 <strong>npm scripts</strong> 里，这样可以使用 Babel 的本地版本。</p>
 
-                  <p>Simply add a <code>"scripts"</code> field to your <code>package.json</code> and put the babel
-                    command
-                    inside there as <code>build</code>.</p>
+                  <p>只需将 <code>"scripts"</code> 字段添加到你的 <code>package.json</code> 文件内并且把 babel 命令写成 <code>build</code> 字段。.</p>
 
                   <div class="highlight highlight-source-diff"><pre>  {
     "name": "my-project",
@@ -1272,298 +1139,169 @@ $ babel src -d lib</pre>
     "devDependencies": {
       "babel-cli": "^6.0.0"
     }
-  }</pre>
-                  </div>
+  }</pre></div>
 
-                  <p>Now from our terminal we can run:</p>
+                  <p>现在可以在终端里运行：</p>
 
-                  <div class="highlight highlight-source-js">
-                    <pre>npm run build</pre>
-                  </div>
+                  <div class="highlight highlight-source-js"><pre>npm run build</pre></div>
 
-                  <p>This will run Babel the same way as before, only now we are using a local copy.</p>
+                  <p>这将以与之前同样的方式运行 Babel，但这一次我们使用的是本地副本。</p>
 
-                  <h2><a id="user-content-babel-register" class="anchor" href="#babel-register" aria-hidden="true">
-                    <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16"
-                         width="16">
-                      <path fill-rule="evenodd"
-                            d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
-                    </svg>
-                  </a><a id="user-content-toc-babel-register"></a><code>babel-register</code></h2>
+                  <h2><a id="user-content-babel-register" class="anchor" href="#babel-register" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a id="user-content-toc-babel-register"></a><code>babel-register</code></h2>
 
-                  <p>The next most common method of running Babel is through <code>babel-register</code>. This
-                    option will allow you to run Babel just by requiring files, which may integrate
-                    with your setup better.</p>
+                  <p>下一个常用的运行 Babel 的方法是通过 <code>babel-register</code>。这种方法只需要引入文件就可以运行 Babel，或许能更好地融入你的项目设置。</p>
 
-                  <p>Note that this is not meant for production use. It's considered bad practice to
-                    deploy code that gets compiled this way. It is far better to compile ahead of
-                    time before deploying. However this works quite well for build scripts or other
-                    things that you run locally.</p>
+                  <p>但请注意这种方法并不适合正式产品环境使用。 直接部署用此方式编译的代码不是好的做法。 在部署之前预先编译会更好。 不过用在构建脚本或是其他本地运行的脚本中是非常合适的。</p>
 
-                  <p>First let's create an <code>index.js</code> file in our project.</p>
+                  <p>让我们先在项目中创建 <code>index.js</code> 文件。</p>
 
-                  <div class="highlight highlight-source-js">
-                    <pre><span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span
-                      class="pl-pds">"</span>Hello world!<span class="pl-pds">"</span></span>);</pre>
-                  </div>
+                  <div class="highlight highlight-source-js"><pre><span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">"</span>Hello world!<span class="pl-pds">"</span></span>);</pre></div>
 
-                  <p>If we were to run this with <code>node index.js</code> this wouldn't be compiled with
-                    Babel. So instead of doing that, we'll setup <code>babel-register</code>.</p>
+                  <p>如果我们用 <code>node index.js</code> 来运行它是不会使用 Babel 来编译的。所以我们需要设置 <code>babel-register</code>。.</p>
 
-                  <p>First install <code>babel-register</code>.</p>
+                  <p>首先安装 <code>babel-register</code>。.</p>
 
-                  <div class="highlight highlight-source-shell">
-                    <pre>$ npm install --save-dev babel-register</pre>
-                  </div>
+                  <div class="highlight highlight-source-shell"><pre>$ npm install --save-dev babel-register</pre></div>
 
-                  <p>Next, create a <code>register.js</code> file in the project and write the following code:</p>
+                  <p>接着，在项目中创建 <code>register.js</code> 文件并添加如下代码：</p>
 
-                  <div class="highlight highlight-source-js"><pre><span class="pl-c1">require</span>(<span class="pl-s"><span
-                    class="pl-pds">"</span><span><a class="octolinker-link octolinker-line-indicator"
-                                                    data-resolver="javascriptUniversal" data-target="babel-register"
-                                                    data-path="/thejameskyle/babel-handbook/blob/f8921a25784f009efdd056a6991e26af8497b853/translations/en/user-handbook.md"><span>babel-register</span></a></span><span
-                    class="pl-pds">"</span></span>);
-<span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">"</span><span><a
-                      class="octolinker-link octolinker-line-indicator" data-resolver="javascriptUniversal"
-                      data-target="./index.js"
-                      data-path="/thejameskyle/babel-handbook/blob/f8921a25784f009efdd056a6991e26af8497b853/translations/en/user-handbook.md"><span>./index.js</span></a></span><span
-                      class="pl-pds">"</span></span>);</pre>
-                  </div>
+                  <div class="highlight highlight-source-js"><pre><span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">"</span><span><a class="octolinker-link octolinker-line-indicator" data-resolver="javascriptUniversal" data-target="babel-register" data-path="/thejameskyle/babel-handbook/blob/f8921a25784f009efdd056a6991e26af8497b853/translations/zh-Hans/user-handbook.md"><span>babel-register</span></a></span><span class="pl-pds">"</span></span>);
+<span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">"</span><span><a class="octolinker-link octolinker-line-indicator" data-resolver="javascriptUniversal" data-target="./index.js" data-path="/thejameskyle/babel-handbook/blob/f8921a25784f009efdd056a6991e26af8497b853/translations/zh-Hans/user-handbook.md"><span>./index.js</span></a></span><span class="pl-pds">"</span></span>);</pre></div>
 
-                  <p>What this does is <em>registers</em> Babel in Node's module system and begins compiling
-                    every file that is <code>require</code>'d.</p>
+                  <p>这样做可以把 Babel <em>注册</em>到 Node 的模块系统中并开始编译其中 <code>require</code> 的所有文件。</p>
 
-                  <p>Now, instead of running <code>node index.js</code> we can use <code>register.js</code> instead.</p>
+                  <p>现在我们可以使用 <code>register.js</code> 来代替 <code>node index.js</code> 来运行了。</p>
 
-                  <div class="highlight highlight-source-shell">
-                    <pre>$ node register.js</pre>
-                  </div>
+                  <div class="highlight highlight-source-shell"><pre>$ node register.js</pre></div>
 
                   <blockquote>
-                    <p><strong>Note:</strong> You can't register Babel in the same file that you want to compile.
-                      As node is executing the file before Babel has a chance to compile it.</p>
+                    <p><strong>注意：</strong>你不能在你要编译的文件内同时注册 Babel，因为 node 会在 Babel 编译它之前就将它执行了。</p>
 
-                    <div class="highlight highlight-source-js"><pre><span class="pl-c1">require</span>(<span
-                      class="pl-s"><span class="pl-pds">"</span><span><a
-                      class="octolinker-link octolinker-line-indicator" data-resolver="javascriptUniversal"
-                      data-target="babel-register"
-                      data-path="/thejameskyle/babel-handbook/blob/f8921a25784f009efdd056a6991e26af8497b853/translations/en/user-handbook.md"><span>babel-register</span></a></span><span
-                      class="pl-pds">"</span></span>);
-<span class="pl-c"><span class="pl-c">//</span> not compiled:</span>
-<span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">"</span>Hello world!<span
-                        class="pl-pds">"</span></span>);</pre>
-                    </div>
+                    <div class="highlight highlight-source-js"><pre><span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">"</span><span><a class="octolinker-link octolinker-line-indicator" data-resolver="javascriptUniversal" data-target="babel-register" data-path="/thejameskyle/babel-handbook/blob/f8921a25784f009efdd056a6991e26af8497b853/translations/zh-Hans/user-handbook.md"><span>babel-register</span></a></span><span class="pl-pds">"</span></span>);
+<span class="pl-c"><span class="pl-c">//</span> 未编译的：</span>
+<span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">"</span>Hello world!<span class="pl-pds">"</span></span>);</pre></div>
                   </blockquote>
 
-                  <h2><a id="user-content-babel-node" class="anchor" href="#babel-node" aria-hidden="true">
-                    <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16"
-                         width="16">
-                      <path fill-rule="evenodd"
-                            d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
-                    </svg>
-                  </a><a id="user-content-toc-babel-node"></a><code>babel-node</code></h2>
+                  <h2><a id="user-content-babel-node" class="anchor" href="#babel-node" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a id="user-content-toc-babel-node"></a><code>babel-node</code></h2>
 
-                  <p>If you are just running some code via the <code>node</code> CLI the easiest way to
-                    integrate Babel might be to use the <code>babel-node</code> CLI which largely is just a
-                    drop in replacement for the <code>node</code> CLI.</p>
+                  <p>如果你要用 <code>node</code> CLI 来运行代码，那么整合 Babel 最简单的方式就是使用 <code>babel-node</code> CLI，它是 <code>node</code> CLI 的替代品。</p>
 
-                  <p>Note that this is not meant for production use. It's considered bad practice to
-                    deploy code that gets compiled this way. It is far better to compile ahead of
-                    time before deploying. However this works quite well for build scripts or other
-                    things that you run locally.</p>
+                  <p>但请注意这种方法并不适合正式产品环境使用。 直接部署用此方式编译的代码不是好的做法。 在部署之前预先编译会更好。 不过用在构建脚本或是其他本地运行的脚本中是非常合适的。</p>
 
-                  <p>First make sure that you have <code>babel-cli</code> installed.</p>
+                  <p>首先确保 <code>babel-cli</code> 已经安装了。</p>
 
-                  <div class="highlight highlight-source-shell">
-                    <pre>$ npm install --save-dev babel-cli</pre>
-                  </div>
+                  <div class="highlight highlight-source-shell"><pre>$ npm install --save-dev babel-cli</pre></div>
 
                   <blockquote>
-                    <p><strong>Note:</strong> If you are wondering why we are installing this locally, please read
-                      the <a href="#running-babel-cli--from-within-a-project">Running Babel CLI from within a
-                        project</a>
-                      section above.</p>
+                    <p><strong>注意：</strong>如果你不清楚为什么要安装在本地，请阅读上面<a href="#running-babel-cli--from-within-a-project">在项目内运行 Babel CLI</a> 的部分。</p>
                   </blockquote>
 
-                  <p>Then replace wherever you are running <code>node</code> with <code>babel-node</code>.</p>
+                  <p>然后用 <code>babel-node</code> 来替代 <code>node</code> 运行所有的代码 。.</p>
 
-                  <p>If you are using npm <code>scripts</code> you can simply do:</p>
+                  <p>如果用 npm <code>scripts</code> 的话只需要这样做：</p>
 
                   <div class="highlight highlight-source-diff"><pre>  {
     "scripts": {
 <span class="pl-md"><span class="pl-mi1">-</span>     "script-name": "node script.js"</span>
 <span class="pl-mi1"><span class="pl-mi1">+</span>     "script-name": "babel-node script.js"</span>
     }
-  }</pre>
-                  </div>
+  }</pre></div>
 
-                  <p>Otherwise you'll need to write out the path to <code>babel-node</code> itself.</p>
+                  <p>要不然的话你需要写全 <code>babel-node</code> 的路径。</p>
 
                   <div class="highlight highlight-source-diff"><pre><span class="pl-md"><span class="pl-mi1">-</span> node script.js</span>
-<span class="pl-mi1"><span class="pl-mi1">+</span> ./node_modules/.bin/babel-node script.js</span></pre>
-                  </div>
+<span class="pl-mi1"><span class="pl-mi1">+</span> ./node_modules/.bin/babel-node script.js</span></pre></div>
 
                   <blockquote>
-                    <p>Tip: You can also use <a href="https://www.npmjs.com/package/npm-run"><code>npm-run</code></a>.
-                    </p>
+                    <p>提示：你可以使用 <a href="https://www.npmjs.com/package/npm-run"><code>npm-run</code></a>。.</p>
                   </blockquote>
 
-                  <h2><a id="user-content-babel-core" class="anchor" href="#babel-core" aria-hidden="true">
-                    <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16"
-                         width="16">
-                      <path fill-rule="evenodd"
-                            d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
-                    </svg>
-                  </a><a id="user-content-toc-babel-core"></a><code>babel-core</code></h2>
+                  <h2><a id="user-content-babel-core" class="anchor" href="#babel-core" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a id="user-content-toc-babel-core"></a><code>babel-core</code></h2>
 
-                  <p>If you need to use Babel programmatically for some reason, you can use the
-                    <code>babel-core</code> package itself.</p>
+                  <p>如果你需要以编程的方式来使用 Babel，可以使用 <code>babel-core</code> 这个包。</p>
 
-                  <p>First install <code>babel-core</code>.</p>
+                  <p>首先安装 <code>babel-core</code>。.</p>
 
-                  <div class="highlight highlight-source-shell">
-                    <pre>$ npm install babel-core</pre>
-                  </div>
+                  <div class="highlight highlight-source-shell"><pre>$ npm install babel-core</pre></div>
 
-                  <div class="highlight highlight-source-js">
-                    <pre><span class="pl-k">var</span> babel <span class="pl-k">=</span> <span
-                      class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">"</span><span><a
-                      class="octolinker-link octolinker-line-indicator" data-resolver="javascriptUniversal"
-                      data-target="babel-core"
-                      data-path="/thejameskyle/babel-handbook/blob/f8921a25784f009efdd056a6991e26af8497b853/translations/en/user-handbook.md"><span>babel-core</span></a></span><span
-                      class="pl-pds">"</span></span>);</pre>
-                  </div>
+                  <div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> babel <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">"</span><span><a class="octolinker-link octolinker-line-indicator" data-resolver="javascriptUniversal" data-target="babel-core" data-path="/thejameskyle/babel-handbook/blob/f8921a25784f009efdd056a6991e26af8497b853/translations/zh-Hans/user-handbook.md"><span>babel-core</span></a></span><span class="pl-pds">"</span></span>);</pre></div>
 
-                  <p>If you have a string of JavaScript you can compile it directly using
-                    <code>babel.transform</code>.</p>
+                  <p>字符串形式的 JavaScript 代码可以直接使用 <code>babel.transform</code> 来编译。.</p>
 
-                  <div class="highlight highlight-source-js"><pre><span class="pl-smi">babel</span>.<span class="pl-en">transform</span>(<span
-                    class="pl-s"><span class="pl-pds">"</span>code();<span class="pl-pds">"</span></span>, options);
-<span class="pl-c"><span class="pl-c">//</span> =&gt; { code, map, ast }</span></pre>
-                  </div>
+                  <div class="highlight highlight-source-js"><pre><span class="pl-smi">babel</span>.<span class="pl-en">transform</span>(<span class="pl-s"><span class="pl-pds">"</span>code();<span class="pl-pds">"</span></span>, options);
+<span class="pl-c"><span class="pl-c">//</span> =&gt; { code, map, ast }</span></pre></div>
 
-                  <p>If you are working with files you can use either the asynchronous api:</p>
+                  <p>如果是文件的话，可以使用异步 api：</p>
 
-                  <div class="highlight highlight-source-js"><pre><span class="pl-smi">babel</span>.<span class="pl-en">transformFile</span>(<span
-                    class="pl-s"><span class="pl-pds">"</span>filename.js<span class="pl-pds">"</span></span>, options, <span
-                    class="pl-k">function</span>(<span class="pl-smi">err</span>, <span class="pl-smi">result</span>) {
+                  <div class="highlight highlight-source-js"><pre><span class="pl-smi">babel</span>.<span class="pl-en">transformFile</span>(<span class="pl-s"><span class="pl-pds">"</span>filename.js<span class="pl-pds">"</span></span>, options, <span class="pl-k">function</span>(<span class="pl-smi">err</span>, <span class="pl-smi">result</span>) {
   result; <span class="pl-c"><span class="pl-c">//</span> =&gt; { code, map, ast }</span>
-});</pre>
-                  </div>
+});</pre></div>
 
-                  <p>Or the synchronous api:</p>
+                  <p>或者是同步 api：</p>
 
-                  <div class="highlight highlight-source-js"><pre><span class="pl-smi">babel</span>.<span class="pl-en">transformFileSync</span>(<span
-                    class="pl-s"><span class="pl-pds">"</span>filename.js<span class="pl-pds">"</span></span>, options);
-<span class="pl-c"><span class="pl-c">//</span> =&gt; { code, map, ast }</span></pre>
-                  </div>
+                  <div class="highlight highlight-source-js"><pre><span class="pl-smi">babel</span>.<span class="pl-en">transformFileSync</span>(<span class="pl-s"><span class="pl-pds">"</span>filename.js<span class="pl-pds">"</span></span>, options);
+<span class="pl-c"><span class="pl-c">//</span> =&gt; { code, map, ast }</span></pre></div>
 
-                  <p>If you already have a Babel AST for whatever reason you may transform from the
-                    AST directly.</p>
+                  <p>要是已经有一个 Babel AST（抽象语法树）了就可以直接从 AST 进行转换。</p>
 
                   <div class="highlight highlight-source-js"><pre><span class="pl-smi">babel</span>.<span class="pl-en">transformFromAst</span>(ast, code, options);
-<span class="pl-c"><span class="pl-c">//</span> =&gt; { code, map, ast }</span></pre>
-                  </div>
+<span class="pl-c"><span class="pl-c">//</span> =&gt; { code, map, ast }</span></pre></div>
 
-                  <p>For all of the above methods, <code>options</code> refers to
-                    <a href="http://babeljs.io/docs/usage/options/">http://babeljs.io/docs/usage/options/</a>.</p>
+                  <p>对于上述所有方法，<code>options</code> 指的都是 <a href="http://babeljs.io/docs/usage/options/">http://babeljs.io/docs/usage/options/</a></p>
 
                   <hr>
 
-                  <h1><a id="user-content-configuring-babel" class="anchor" href="#configuring-babel"
-                         aria-hidden="true">
-                    <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16"
-                         width="16">
-                      <path fill-rule="evenodd"
-                            d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
-                    </svg>
-                  </a><a id="user-content-toc-configuring-babel"></a>Configuring Babel
-                  </h1>
+                  <h1><a id="user-content-配置-babel" class="anchor" href="#配置-babel" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a id="user-content-toc-configuring-babel"></a>配置 Babel</h1>
 
-                  <p>You may have noticed by now that running Babel on its own doesn't seem to do
-                    anything other than copy JavaScript files from one location to another.</p>
+                  <p>你或许已经注意到了，目前为止通过运行 Babel 自己我们并没能“翻译”代码，而仅仅是把代码从一处拷贝到了另一处。</p>
 
-                  <p>This is because we haven't told Babel to do anything yet.</p>
+                  <p>这是因为我们还没告诉 Babel 要做什么。</p>
 
                   <blockquote>
-                    <p>Since Babel is a general purpose compiler that gets used in a myriad of
-                      different ways, it doesn't do anything by default. You have to explicitly tell
-                      Babel what it should be doing.</p>
+                    <p>由于 Babel 是一个可以用各种花样去使用的通用编译器，因此默认情况下它反而什么都不做。你必须明确地告诉 Babel 应该要做什么。</p>
                   </blockquote>
 
-                  <p>You can give Babel instructions on what to do by installing <strong>plugins</strong> or
-                    <strong>presets</strong> (groups of plugins).</p>
+                  <p>你可以通过安装<strong>插件（plugins）</strong>或<strong>预设（presets，也就是一组插件）</strong>来指示 Babel 去做什么事情。</p>
 
-                  <h2><a id="user-content-babelrc" class="anchor" href="#babelrc" aria-hidden="true">
-                    <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16"
-                         width="16">
-                      <path fill-rule="evenodd"
-                            d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
-                    </svg>
-                  </a><a id="user-content-toc-babelrc"></a><code>.babelrc</code></h2>
+                  <h2><a id="user-content-babelrc" class="anchor" href="#babelrc" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a id="user-content-toc-babelrc"></a><code>.babelrc</code></h2>
 
-                  <p>Before we start telling Babel what to do. We need to create a configuration
-                    file. All you need to do is create a <code>.babelrc</code> file at the root of your
-                    project. Start off with it like this:</p>
+                  <p>在我们告诉 Babel 该做什么之前，我们需要创建一个配置文件。你需要做的就是在项目的根路径下创建 <code>.babelrc</code> 文件。然后输入以下内容作为开始：</p>
 
                   <div class="highlight highlight-source-js"><pre>{
   <span class="pl-s"><span class="pl-pds">"</span>presets<span class="pl-pds">"</span></span><span class="pl-k">:</span> [],
   <span class="pl-s"><span class="pl-pds">"</span>plugins<span class="pl-pds">"</span></span><span class="pl-k">:</span> []
-}</pre>
-                  </div>
+}</pre></div>
 
-                  <p>This file is how you configure Babel to do what you want.</p>
+                  <p>这个文件就是用来让 Babel 做你要它做的事情的配置文件。</p>
 
                   <blockquote>
-                    <p><strong>Note:</strong> While you can also pass options to Babel in other ways the
-                      <code>.babelrc</code> file is convention and is the best way.</p>
+                    <p><strong>注意：</strong>尽管你也可以用其他方式给 Babel 传递选项，但 <code>.babelrc</code> 文件是约定也是最好的方式。</p>
                   </blockquote>
 
-                  <h2><a id="user-content-babel-preset-es2015" class="anchor" href="#babel-preset-es2015"
-                         aria-hidden="true">
-                    <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16"
-                         width="16">
-                      <path fill-rule="evenodd"
-                            d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
-                    </svg>
-                  </a><a id="user-content-toc-babel-preset-es2015"></a><code>babel-preset-es2015</code></h2>
+                  <h2><a id="user-content-babel-preset-es2015" class="anchor" href="#babel-preset-es2015" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a id="user-content-toc-babel-preset-es2015"></a><code>babel-preset-es2015</code></h2>
 
-                  <p>Let's start by telling Babel to compile ES2015 (the newest version of the
-                    JavaScript standard, also known as ES6) to ES5 (the version available in most
-                    JavaScript environments today).</p>
+                  <p>我们先从让 Babel 把 ES2015（最新版本的 JavaScript 标准，也叫做 ES6）编译成 ES5（现今在大多数 JavaScript 环境下可用的版本）开始吧。</p>
 
-                  <p>We'll do this by installing the "es2015" Babel preset:</p>
+                  <p>我们需要安装 "es2015" Babel 预设：</p>
 
-                  <div class="highlight highlight-source-shell">
-                    <pre>$ npm install --save-dev babel-preset-es2015</pre>
-                  </div>
+                  <div class="highlight highlight-source-shell"><pre>$ npm install --save-dev babel-preset-es2015</pre></div>
 
-                  <p>Next we'll modify our <code>.babelrc</code> to include that preset.</p>
+                  <p>我们修改 <code>.babelrc</code> 来包含这个预设。</p>
 
                   <div class="highlight highlight-source-diff"><pre>  {
     "presets": [
 <span class="pl-mi1"><span class="pl-mi1">+</span>     "es2015"</span>
     ],
     "plugins": []
-  }</pre>
-                  </div>
+  }</pre></div>
 
-                  <h2><a id="user-content-babel-preset-react" class="anchor" href="#babel-preset-react"
-                         aria-hidden="true">
-                    <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16"
-                         width="16">
-                      <path fill-rule="evenodd"
-                            d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
-                    </svg>
-                  </a><a id="user-content-toc-babel-preset-react"></a><code>babel-preset-react</code></h2>
+                  <h2><a id="user-content-babel-preset-react" class="anchor" href="#babel-preset-react" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a id="user-content-toc-babel-preset-react"></a><code>babel-preset-react</code></h2>
 
-                  <p>Setting up React is just as easy. Just install the preset:</p>
+                  <p>设置 React 一样容易。只需要安装这个预设：</p>
 
-                  <div class="highlight highlight-source-shell">
-                    <pre>$ npm install --save-dev babel-preset-react</pre>
-                  </div>
+                  <div class="highlight highlight-source-shell"><pre>$ npm install --save-dev babel-preset-react</pre></div>
 
-                  <p>Then add the preset to your <code>.babelrc</code> file:</p>
+                  <p>然后在 <code>.babelrc</code> 文件里补充：</p>
 
                   <div class="highlight highlight-source-diff"><pre>  {
     "presets": [
@@ -1571,27 +1309,15 @@ $ babel src -d lib</pre>
 <span class="pl-mi1"><span class="pl-mi1">+</span>     "react"</span>
     ],
     "plugins": []
-  }</pre>
-                  </div>
+  }</pre></div>
 
-                  <h2><a id="user-content-babel-preset-stage-x" class="anchor" href="#babel-preset-stage-x"
-                         aria-hidden="true">
-                    <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16"
-                         width="16">
-                      <path fill-rule="evenodd"
-                            d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
-                    </svg>
-                  </a><a id="user-content-toc-babel-preset-stage-x"></a><code>babel-preset-stage-x</code></h2>
+                  <h2><a id="user-content-babel-preset-stage-x" class="anchor" href="#babel-preset-stage-x" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a id="user-content-toc-babel-preset-stage-x"></a><code>babel-preset-stage-x</code></h2>
 
-                  <p>JavaScript also has some proposals that are making their way into the standard
-                    through the TC39's (the technical committee behind the ECMAScript standard)
-                    process.</p>
+                  <p>JavaScript 还有一些提案，正在积极通过 TC39（ECMAScript 标准背后的技术委员会）的流程成为标准的一部分。</p>
 
-                  <p>This process is broken through a 5 stage (0-4) process. As proposals gain more
-                    traction and are more likely to be accepted into the standard they proceed
-                    through the various stages, finally being accepted into the standard at stage 4.</p>
+                  <p>这个流程分为 5（0－4）个阶段。 随着提案得到越多的关注就越有可能被标准采纳，于是他们就继续通过各个阶段，最终在阶段 4 被标准正式采纳。</p>
 
-                  <p>These are bundled in babel as 4 different presets:</p>
+                  <p>以下是4 个不同阶段的（打包的）预设：</p>
 
                   <ul>
                     <li><code>babel-preset-stage-0</code></li>
@@ -1601,21 +1327,16 @@ $ babel src -d lib</pre>
                   </ul>
 
                   <blockquote>
-                    <p>Note that there is no stage-4 preset as it is simply the <code>es2015</code> preset
-                      above.</p>
+                    <p>注意 stage-4 预设是不存在的因为它就是上面的 <code>es2015</code> 预设。</p>
                   </blockquote>
 
-                  <p>Each of these presets requires the preset for the later stages. i.e.
-                    <code>babel-preset-stage-1</code> requires <code>babel-preset-stage-2</code> which requires
-                    <code>babel-preset-stage-3</code>.</p>
+                  <p>以上每种预设都依赖于紧随的后期阶段预设。例如，<code>babel-preset-stage-1</code> 依赖 <code>babel-preset-stage-2</code>，后者又依赖 <code>babel-preset-stage-3</code>。.</p>
 
-                  <p>Simply install the stage you are interested in using:</p>
+                  <p>使用的时候只需要安装你想要的阶段就可以了：</p>
 
-                  <div class="highlight highlight-source-shell">
-                    <pre>$ npm install --save-dev babel-preset-stage-2</pre>
-                  </div>
+                  <div class="highlight highlight-source-shell"><pre>$ npm install --save-dev babel-preset-stage-2</pre></div>
 
-                  <p>Then you can add it to your <code>.babelrc</code> config.</p>
+                  <p>然后添加进你的 <code>.babelrc</code> 配置文件。</p>
 
                   <div class="highlight highlight-source-diff"><pre>  {
     "presets": [
@@ -1624,265 +1345,145 @@ $ babel src -d lib</pre>
 <span class="pl-mi1"><span class="pl-mi1">+</span>     "stage-2"</span>
     ],
     "plugins": []
-  }</pre>
-                  </div>
+  }</pre></div>
 
                   <hr>
 
-                  <h1><a id="user-content-executing-babel-generated-code" class="anchor"
-                         href="#executing-babel-generated-code" aria-hidden="true">
-                    <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16"
-                         width="16">
-                      <path fill-rule="evenodd"
-                            d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
-                    </svg>
-                  </a><a id="user-content-toc-executing-babel-generated-code"></a>Executing Babel-generated code
-                  </h1>
+                  <h1><a id="user-content-执行-babel-生成的代码" class="anchor" href="#执行-babel-生成的代码" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a id="user-content-toc-executing-babel-generated-code"></a>执行 Babel 生成的代码</h1>
 
-                  <p>So you've compiled your code with Babel, but this is not the end of the story.</p>
+                  <p>即便你已经用 Babel 编译了你的代码，但这还不算完。</p>
 
-                  <h2><a id="user-content-babel-polyfill" class="anchor" href="#babel-polyfill" aria-hidden="true">
-                    <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16"
-                         width="16">
-                      <path fill-rule="evenodd"
-                            d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
-                    </svg>
-                  </a><a id="user-content-toc-babel-polyfill"></a><code>babel-polyfill</code></h2>
+                  <h2><a id="user-content-babel-polyfill" class="anchor" href="#babel-polyfill" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a id="user-content-toc-babel-polyfill"></a><code>babel-polyfill</code></h2>
 
-                  <p>Almost all futuristic JavaScript syntax can be compiled with Babel, but the same
-                    is not true for APIs.</p>
+                  <p>Babel 几乎可以编译所有时新的 JavaScript 语法，但对于 APIs 来说却并非如此。</p>
 
-                  <p>For example, the following code has an arrow function that needs to be compiled:</p>
+                  <p>比方说，下列含有箭头函数的需要编译的代码：</p>
 
-                  <div class="highlight highlight-source-js"><pre><span class="pl-k">function</span> <span
-                    class="pl-en">addAll</span>() {
-  <span class="pl-k">return</span> <span class="pl-c1">Array</span>.<span class="pl-en">from</span>(<span class="pl-c1">arguments</span>).<span
-                      class="pl-en">reduce</span>((<span class="pl-smi">a</span>, <span class="pl-smi">b</span>) <span
-                      class="pl-k">=&gt;</span> a <span class="pl-k">+</span> b);
-}</pre>
-                  </div>
+                  <div class="highlight highlight-source-js"><pre><span class="pl-k">function</span> <span class="pl-en">addAll</span>() {
+  <span class="pl-k">return</span> <span class="pl-c1">Array</span>.<span class="pl-en">from</span>(<span class="pl-c1">arguments</span>).<span class="pl-en">reduce</span>((<span class="pl-smi">a</span>, <span class="pl-smi">b</span>) <span class="pl-k">=&gt;</span> a <span class="pl-k">+</span> b);
+}</pre></div>
 
-                  <p>Which turns into this:</p>
+                  <p>最终会变成这样：</p>
 
-                  <div class="highlight highlight-source-js"><pre><span class="pl-k">function</span> <span
-                    class="pl-en">addAll</span>() {
-  <span class="pl-k">return</span> <span class="pl-c1">Array</span>.<span class="pl-en">from</span>(<span class="pl-c1">arguments</span>).<span
-                      class="pl-en">reduce</span>(<span class="pl-k">function</span>(<span
-                      class="pl-smi">a</span>, <span class="pl-smi">b</span>) {
+                  <div class="highlight highlight-source-js"><pre><span class="pl-k">function</span> <span class="pl-en">addAll</span>() {
+  <span class="pl-k">return</span> <span class="pl-c1">Array</span>.<span class="pl-en">from</span>(<span class="pl-c1">arguments</span>).<span class="pl-en">reduce</span>(<span class="pl-k">function</span>(<span class="pl-smi">a</span>, <span class="pl-smi">b</span>) {
     <span class="pl-k">return</span> a <span class="pl-k">+</span> b;
   });
-}</pre>
-                  </div>
+}</pre></div>
 
-                  <p>However, this still won't work everywhere because <code>Array.from</code> doesn't exist
-                    in every JavaScript environment.</p>
+                  <p>然而，它依然无法随处可用因为不是所有的 JavaScript 环境都支持 <code>Array.from</code>。</p>
 
                   <pre><code>Uncaught TypeError: Array.from is not a function
 </code></pre>
 
-                  <p>To solve this problem we use something called a
-                    <a href="https://remysharp.com/2010/10/08/what-is-a-polyfill">Polyfill</a>. Simply put, a
-                    polyfill is a piece of code that replicates a native api that does not exist in
-                    the current runtime. Allowing you to use APIs such as <code>Array.from</code> before they
-                    are available.</p>
+                  <p>为了解决这个问题，我们使用一种叫做 <a href="https://remysharp.com/2010/10/08/what-is-a-polyfill">Polyfill（代码填充，也可译作兼容性补丁）</a> 的技术。 简单地说，polyfill 即是在当前运行环境中用来复制（意指模拟性的复制，而不是拷贝）尚不存在的原生 api 的代码。 能让你提前使用还不可用的 APIs，<code>Array.from</code> 就是一个例子。</p>
 
-                  <p>Babel uses the excellent <a href="https://github.com/zloirock/core-js"
-                                                 class="ghh-repo-x tooltipstered" title=""
-                                                 style="box-shadow: transparent 0px 0px;">core-js</a> as its
-                    polyfill, along with a customized
-                    <a href="https://github.com/facebook/regenerator" class="ghh-repo-x tooltipstered" title=""
-                       style="box-shadow: transparent 0px 0px;">regenerator</a> runtime for getting
-                    generators and async functions working.</p>
+                  <p>Babel 用了优秀的 <a href="https://github.com/zloirock/core-js" class="ghh-repo-x tooltipstered" title="" style="box-shadow: transparent 0px 0px;">core-js</a> 用作 polyfill，并且还有定制化的 <a href="https://github.com/facebook/regenerator" class="ghh-repo-x tooltipstered" title="" style="box-shadow: transparent 0px 0px;">regenerator</a> 来让 generators（生成器）和 async functions（异步函数）正常工作。</p>
 
-                  <p>To include the Babel polyfill, first install it with npm:</p>
+                  <p>要使用 Babel polyfill，首先用 npm 安装它：</p>
 
-                  <div class="highlight highlight-source-shell">
-                    <pre>$ npm install --save babel-polyfill</pre>
-                  </div>
+                  <div class="highlight highlight-source-shell"><pre>$ npm install --save babel-polyfill</pre></div>
 
-                  <p>Then simply include the polyfill at the top of any file that requires it:</p>
+                  <p>然后只需要在文件顶部导入 polyfill 就可以了：</p>
 
-                  <div class="highlight highlight-source-js">
-                    <pre><span class="pl-k">import</span> <span class="pl-s"><span class="pl-pds">"</span><span><a
-                      class="octolinker-link octolinker-line-indicator" data-resolver="javascriptUniversal"
-                      data-target="babel-polyfill"
-                      data-path="/thejameskyle/babel-handbook/blob/f8921a25784f009efdd056a6991e26af8497b853/translations/en/user-handbook.md"><span>babel-polyfill</span></a></span><span
-                      class="pl-pds">"</span></span>;</pre>
-                  </div>
+                  <div class="highlight highlight-source-js"><pre><span class="pl-k">import</span> <span class="pl-s"><span class="pl-pds">"</span><span><a class="octolinker-link octolinker-line-indicator" data-resolver="javascriptUniversal" data-target="babel-polyfill" data-path="/thejameskyle/babel-handbook/blob/f8921a25784f009efdd056a6991e26af8497b853/translations/zh-Hans/user-handbook.md"><span>babel-polyfill</span></a></span><span class="pl-pds">"</span></span>;</pre></div>
 
-                  <h2><a id="user-content-babel-runtime" class="anchor" href="#babel-runtime" aria-hidden="true">
-                    <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16"
-                         width="16">
-                      <path fill-rule="evenodd"
-                            d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
-                    </svg>
-                  </a><a id="user-content-toc-babel-runtime"></a><code>babel-runtime</code></h2>
+                  <h2><a id="user-content-babel-runtime" class="anchor" href="#babel-runtime" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a id="user-content-toc-babel-runtime"></a><code>babel-runtime</code></h2>
 
-                  <p>In order to implement details of ECMAScript specs, Babel will use "helper"
-                    methods in order to keep the generated code clean.</p>
+                  <p>为了实现 ECMAScript 规范的细节，Babel 会使用“助手”方法来保持生成代码的整洁。</p>
 
-                  <p>Since these helpers can get pretty long, and they get added to the top of every
-                    file you can move them into a single "runtime" which gets required.</p>
+                  <p>由于这些助手方法可能会特别长并且会被添加到每一个文件的顶部，因此你可以把它们统一移动到一个单一的“运行时（runtime）”中去。</p>
 
-                  <p>Start by installing <code>babel-plugin-transform-runtime</code> and <code>babel-runtime</code>:</p>
+                  <p>通过安装 <code>babel-plugin-transform-runtime</code> 和 <code>babel-runtime</code> 来开始。</p>
 
                   <div class="highlight highlight-source-shell"><pre>$ npm install --save-dev babel-plugin-transform-runtime
-$ npm install --save babel-runtime</pre>
-                  </div>
+$ npm install --save babel-runtime</pre></div>
 
-                  <p>Then update your <code>.babelrc</code>:</p>
+                  <p>然后更新 <code>.babelrc</code>：</p>
 
                   <div class="highlight highlight-source-diff"><pre>  {
     "plugins": [
 <span class="pl-mi1"><span class="pl-mi1">+</span>     "transform-runtime",</span>
       "transform-es2015-classes"
     ]
-  }</pre>
-                  </div>
+  }</pre></div>
 
-                  <p>Now Babel will compile code like the following:</p>
+                  <p>现在，Babel 会把这样的代码：</p>
 
                   <div class="highlight highlight-source-js"><pre><span class="pl-k">class</span> <span class="pl-en">Foo</span> {
   <span class="pl-en">method</span>() {}
-}</pre>
-                  </div>
+}</pre></div>
 
-                  <p>Into this:</p>
+                  <p>编译成：</p>
 
-                  <div class="highlight highlight-source-js"><pre><span class="pl-k">import</span> <span class="pl-smi">_classCallCheck</span> <span
-                    class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">"</span><span><a
-                    class="octolinker-link octolinker-line-indicator" data-resolver="javascriptUniversal"
-                    data-target="babel-runtime/helpers/classCallCheck"
-                    data-path="/thejameskyle/babel-handbook/blob/f8921a25784f009efdd056a6991e26af8497b853/translations/en/user-handbook.md"><span>babel-runtime/helpers/classCallCheck</span></a></span><span
-                    class="pl-pds">"</span></span>;
-<span class="pl-k">import</span> <span class="pl-smi">_createClass</span> <span class="pl-k">from</span> <span
-                      class="pl-s"><span class="pl-pds">"</span><span><a
-                      class="octolinker-link octolinker-line-indicator" data-resolver="javascriptUniversal"
-                      data-target="babel-runtime/helpers/createClass"
-                      data-path="/thejameskyle/babel-handbook/blob/f8921a25784f009efdd056a6991e26af8497b853/translations/en/user-handbook.md"><span>babel-runtime/helpers/createClass</span></a></span><span
-                      class="pl-pds">"</span></span>;
+                  <div class="highlight highlight-source-js"><pre><span class="pl-k">import</span> <span class="pl-smi">_classCallCheck</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">"</span><span><a class="octolinker-link octolinker-line-indicator" data-resolver="javascriptUniversal" data-target="babel-runtime/helpers/classCallCheck" data-path="/thejameskyle/babel-handbook/blob/f8921a25784f009efdd056a6991e26af8497b853/translations/zh-Hans/user-handbook.md"><span>babel-runtime/helpers/classCallCheck</span></a></span><span class="pl-pds">"</span></span>;
+<span class="pl-k">import</span> <span class="pl-smi">_createClass</span> <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">"</span><span><a class="octolinker-link octolinker-line-indicator" data-resolver="javascriptUniversal" data-target="babel-runtime/helpers/createClass" data-path="/thejameskyle/babel-handbook/blob/f8921a25784f009efdd056a6991e26af8497b853/translations/zh-Hans/user-handbook.md"><span>babel-runtime/helpers/createClass</span></a></span><span class="pl-pds">"</span></span>;
 
-<span class="pl-k">let</span> <span class="pl-en">Foo</span> <span class="pl-k">=</span> <span
-                      class="pl-k">function</span> () {
+<span class="pl-k">let</span> <span class="pl-en">Foo</span> <span class="pl-k">=</span> <span class="pl-k">function</span> () {
   <span class="pl-k">function</span> <span class="pl-en">Foo</span>() {
     <span class="pl-en">_classCallCheck</span>(<span class="pl-c1">this</span>, Foo);
   }
 
   <span class="pl-en">_createClass</span>(Foo, [{
-    key<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>method<span
-                      class="pl-pds">"</span></span>,
+    key<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>method<span class="pl-pds">"</span></span>,
     <span class="pl-en">value</span><span class="pl-k">:</span> <span class="pl-k">function</span> <span class="pl-en">method</span>() {}
   }]);
 
   <span class="pl-k">return</span> Foo;
-}();</pre>
-                  </div>
+}();</pre></div>
 
-                  <p>Rather than putting the <code>_classCallCheck</code> and <code>_createClass</code> helpers in every
-                    single file where they are needed.</p>
+                  <p>这样就不需要把 <code>_classCallCheck</code> 和 <code>_createClass</code> 这两个助手方法放进每一个需要的文件里去了。</p>
 
                   <hr>
 
-                  <h1><a id="user-content-configuring-babel-advanced" class="anchor" href="#configuring-babel-advanced"
-                         aria-hidden="true">
-                    <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16"
-                         width="16">
-                      <path fill-rule="evenodd"
-                            d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
-                    </svg>
-                  </a><a id="user-content-toc-configuring-babel-advanced"></a>Configuring Babel (Advanced)
-                  </h1>
+                  <h1><a id="user-content-配置-babel进阶" class="anchor" href="#配置-babel进阶" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a id="user-content-toc-configuring-babel-advanced"></a>配置 Babel（进阶）</h1>
 
-                  <p>Most people can get by using Babel with just the built-in presets, but Babel
-                    exposes much finer-grained power than that.</p>
+                  <p>大多数人使用 Babel 的内建预设就足够了，不过 Babel 提供了更多更细粒度的能力。</p>
 
-                  <h2><a id="user-content-manually-specifying-plugins" class="anchor"
-                         href="#manually-specifying-plugins" aria-hidden="true">
-                    <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16"
-                         width="16">
-                      <path fill-rule="evenodd"
-                            d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
-                    </svg>
-                  </a><a id="user-content-toc-manually-specifying-plugins"></a>Manually specifying plugins
-                  </h2>
+                  <h2><a id="user-content-手动指定插件" class="anchor" href="#手动指定插件" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a id="user-content-toc-manually-specifying-plugins"></a>手动指定插件</h2>
 
-                  <p>Babel presets are simply collections of pre-configured plugins, if you want to
-                    do something differently you manually specify plugins. This works almost exactly
-                    the same way as presets.</p>
+                  <p>Babel 预设就是一些预先配置好的插件的集合，如果你想要做一些不一样的事情你会手动去设定插件，这和使用预设几乎完全相同。</p>
 
-                  <p>First install a plugin:</p>
+                  <p>首先安装插件：</p>
 
-                  <div class="highlight highlight-source-shell">
-                    <pre>$ npm install --save-dev babel-plugin-transform-es2015-classes</pre>
-                  </div>
+                  <div class="highlight highlight-source-shell"><pre>$ npm install --save-dev babel-plugin-transform-es2015-classes</pre></div>
 
-                  <p>Then add the <code>plugins</code> field to your <code>.babelrc</code>.</p>
+                  <p>然后往 <code>.babelrc</code> 文件添加 <code>plugins</code> 字段。.</p>
 
                   <div class="highlight highlight-source-diff"><pre>  {
 <span class="pl-mi1"><span class="pl-mi1">+</span>   "plugins": [</span>
 <span class="pl-mi1"><span class="pl-mi1">+</span>     "transform-es2015-classes"</span>
 <span class="pl-mi1"><span class="pl-mi1">+</span>   ]</span>
-  }</pre>
-                  </div>
+  }</pre></div>
 
-                  <p>This gives you much finer grained control over the exact transforms you are
-                    running.</p>
+                  <p>这能让你对正在使用的转换器进行更细致的控制。</p>
 
-                  <p>For a full list of official plugins see the
-                    <a href="http://babeljs.io/docs/plugins/">Babel Plugins page</a>.</p>
+                  <p>完整的官方插件列表请见 <a href="http://babeljs.io/docs/plugins/">Babel 插件页面</a>。.</p>
 
-                  <p>Also take a look at all the plugins that have been
-                    <a href="https://www.npmjs.com/search?q=babel-plugin">built by the community</a>. If you
-                    would like to learn how to write your own plugin read the
-                    <a href="/thejameskyle/babel-handbook/blob/master/translations/en/plugin-handbook.md">Babel Plugin
-                      Handbook</a>.</p>
+                  <p>同时也别忘了看看<a href="https://www.npmjs.com/search?q=babel-plugin">由社区构建的其他插件</a>。 如果你想学习如何编写自己的插件可以阅读 <a href="/thejameskyle/babel-handbook/blob/master/translations/zh-Hans/plugin-handbook.md">Babel 插件手册</a>。.</p>
 
-                  <h2><a id="user-content-plugin-options" class="anchor" href="#plugin-options" aria-hidden="true">
-                    <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16"
-                         width="16">
-                      <path fill-rule="evenodd"
-                            d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
-                    </svg>
-                  </a><a id="user-content-toc-plugin-options"></a>Plugin options
-                  </h2>
+                  <h2><a id="user-content-插件选项" class="anchor" href="#插件选项" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a id="user-content-toc-plugin-options"></a>插件选项</h2>
 
-                  <p>Many plugins also have options to configure them to behave differently. For
-                    example, many transforms have a "loose" mode which drops some spec behavior in
-                    favor of simpler and more performant generated code.</p>
+                  <p>很多插件也有选项用于配置他们自身的行为。 例如，很多转换器都有“宽松”模式，通过放弃一些标准中的行为来生成更简化且性能更好的代码。</p>
 
-                  <p>To add options to a plugin, simply make the following change:</p>
+                  <p>要为插件添加选项，只需要做出以下更改：</p>
 
                   <div class="highlight highlight-source-diff"><pre>  {
     "plugins": [
 <span class="pl-md"><span class="pl-mi1">-</span>     "transform-es2015-classes"</span>
 <span class="pl-mi1"><span class="pl-mi1">+</span>     ["transform-es2015-classes", { "loose": true }]</span>
     ]
-  }</pre>
-                  </div>
+  }</pre></div>
 
                   <blockquote>
-                    <p>I'll be working on updates to the plugin documentation to detail every option
-                      in the coming weeks.
-                      <a href="https://twitter.com/thejameskyle">Follow me for updates</a>.</p>
+                    <p>接下来几周内我会更新插件文档来详细介绍每一个选项。<a href="https://twitter.com/thejameskyle">关注我以获知更新</a>。.</p>
                   </blockquote>
 
-                  <h2><a id="user-content-customizing-babel-based-on-environment" class="anchor"
-                         href="#customizing-babel-based-on-environment" aria-hidden="true">
-                    <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16"
-                         width="16">
-                      <path fill-rule="evenodd"
-                            d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
-                    </svg>
-                  </a><a id="user-content-toc-customizing-babel-based-on-environment"></a>Customizing Babel based on
-                    environment
-                  </h2>
+                  <h2><a id="user-content-基于环境自定义-babel" class="anchor" href="#基于环境自定义-babel" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a id="user-content-toc-customizing-babel-based-on-environment"></a>基于环境自定义 Babel</h2>
 
-                  <p>Babel plugins solve many different tasks. Many of them are development tools
-                    that can help you debugging your code or integrate with tools. There are also
-                    a lot of plugins that are meant for optimizing your code in production.</p>
+                  <p>Babel 插件解决许多不同的问题。 其中大多数是开发工具，可以帮助你调试代码或是与工具集成。 也有大量的插件用于在生产环境中优化你的代码。</p>
 
-                  <p>For this reason, it is common to want Babel configuration based on the
-                    environment. You can do this easily with your <code>.babelrc</code> file.</p>
+                  <p>因此，想要基于环境来配置 Babel 是很常见的。你可以轻松的使用 <code>.babelrc</code> 文件来达成目的。</p>
 
                   <div class="highlight highlight-source-diff"><pre>  {
     "presets": ["es2015"],
@@ -1895,61 +1496,35 @@ $ npm install --save babel-runtime</pre>
 <span class="pl-mi1"><span class="pl-mi1">+</span>       "plugins": [...]</span>
 <span class="pl-mi1"><span class="pl-mi1">+</span>     }</span>
     }
-  }</pre>
-                  </div>
+  }</pre></div>
 
-                  <p>Babel will enable configuration inside of <code>env</code> based on the current
-                    environment.</p>
+                  <p>Babel 将根据当前环境来开启 <code>env</code> 下的配置。</p>
 
-                  <p>The current environment will use <code>process.env.BABEL_ENV</code>. When <code>BABEL_ENV</code> is
-                    not available, it will fallback to <code>NODE_ENV</code>, and if that is not available it
-                    will default to <code>"development"</code>.</p>
+                  <p>当前环境可以使用 <code>process.env.BABEL_ENV</code> 来获得。 如果 <code>BABEL_ENV</code> 不可用，将会替换成 <code>NODE_ENV</code>，并且如果后者也没有设置，那么缺省值是<code>"development"</code>。.</p>
 
                   <p><strong>Unix</strong></p>
 
                   <div class="highlight highlight-source-shell"><pre>$ BABEL_ENV=production [COMMAND]
-$ NODE_ENV=production [COMMAND]</pre>
-                  </div>
+$ NODE_ENV=production [COMMAND]</pre></div>
 
                   <p><strong>Windows</strong></p>
 
                   <div class="highlight highlight-source-shell"><pre>$ SET BABEL_ENV=production
-$ [COMMAND]</pre>
-                  </div>
+$ [COMMAND]</pre></div>
 
                   <blockquote>
-                    <p><strong>Note:</strong> <code>[COMMAND]</code> is whatever you use to run Babel (ie.
-                      <code>babel</code>,
-                      <code>babel-node</code>, or maybe just <code>node</code> if you are using the register hook).</p>
+                    <p><strong>注意：</strong><code>[COMMAND]</code> 指的是任意一个用来运行 Babel 的命令（如：<code>babel</code>，<code>babel-node</code>，或是 <code>node</code>，如果你使用了 register 钩子的话）。</p>
 
-                    <p><strong>Tip:</strong> If you want your command to work across unix and windows platforms
-                      then use <a href="https://www.npmjs.com/package/cross-env"><code>cross-env</code></a>.</p>
+                    <p><strong>提示：</strong>如果你想要让命令能够跨 unix 和 windows 平台运行的话，可以使用 <a href="https://www.npmjs.com/package/cross-env"><code>cross-env</code></a>。.</p>
                   </blockquote>
 
-                  <h2><a id="user-content-making-your-own-preset" class="anchor" href="#making-your-own-preset"
-                         aria-hidden="true">
-                    <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16"
-                         width="16">
-                      <path fill-rule="evenodd"
-                            d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
-                    </svg>
-                  </a><a id="user-content-toc-making-your-own-preset"></a>Making your own preset
-                  </h2>
+                  <h2><a id="user-content-制作你自己的预设preset" class="anchor" href="#制作你自己的预设preset" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a id="user-content-toc-making-your-own-preset"></a>制作你自己的预设（preset）</h2>
 
-                  <p>Manually specifying plugins? Plugin options? Environment-based settings? All
-                    this configuration might seem like a ton of repetition for all of your projects.</p>
+                  <p>手动指定插件？插件选项？环境特定设置？所有这些配置都会在你的项目里产生大量的重复工作。</p>
 
-                  <p>For this reason, we encourage the community to create their own presets. This
-                    could be a preset for the specific
-                    <a href="https://github.com/leebenson/babel-preset-node5" class="ghh-repo-x tooltipstered" title=""
-                       style="box-shadow: transparent 0px 0px;">node version</a> you are running,
-                    or maybe a preset for your
-                    <a href="https://github.com/cloudflare/babel-preset-cf" class="ghh-repo-x tooltipstered" title=""
-                       style="box-shadow: transparent 0px 0px;">entire</a>
-                    <a href="https://github.com/airbnb/babel-preset-airbnb" class="ghh-repo-x tooltipstered" title=""
-                       style="box-shadow: transparent 0px 0px;">company</a>.</p>
+                  <p>为此，我们鼓励社区创建自己的预设。 这可能是一个针对特定 <a href="https://github.com/leebenson/babel-preset-node5" class="ghh-repo-x tooltipstered" title="" style="box-shadow: transparent 0px 0px;">node 版本</a>的预设，或是适用于你<a href="https://github.com/cloudflare/babel-preset-cf" class="ghh-repo-x tooltipstered" title="" style="box-shadow: transparent 0px 0px;">整个</a><a href="https://github.com/airbnb/babel-preset-airbnb" class="ghh-repo-x tooltipstered" title="" style="box-shadow: transparent 0px 0px;">公司</a>的预设。.</p>
 
-                  <p>It's easy to create a preset. Say you have this <code>.babelrc</code> file:</p>
+                  <p>创建预设非常容易。比方说你这样一个 <code>.babelrc</code> 文件：</p>
 
                   <div class="highlight highlight-source-js"><pre>{
   <span class="pl-s"><span class="pl-pds">"</span>presets<span class="pl-pds">"</span></span><span class="pl-k">:</span> [
@@ -1959,128 +1534,65 @@ $ [COMMAND]</pre>
   <span class="pl-s"><span class="pl-pds">"</span>plugins<span class="pl-pds">"</span></span><span class="pl-k">:</span> [
     <span class="pl-s"><span class="pl-pds">"</span>transform-flow-strip-types<span class="pl-pds">"</span></span>
   ]
-}</pre>
-                  </div>
+}</pre></div>
 
-                  <p>All you need to do is create a new project following the naming convention
-                    <code>babel-preset-*</code> (please be responsible with this namespace), and create two
-                    files.</p>
+                  <p>你要做的就是依循命名约定 <code>babel-preset-*</code> 来创建一个新项目（请务必对这个命名约定保持责任心，也就是说不要滥用这个命名空间），然后创建两个文件。</p>
 
-                  <p>First, create a new <code>package.json</code> file with the necessary <code>dependencies</code> for
-                    your preset.</p>
+                  <p>首先，创建一个 <code>package.json</code>，包括针对预设所必要的 <code>dependencies</code>。</p>
 
                   <div class="highlight highlight-source-js"><pre>{
-  <span class="pl-s"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span><span
-                      class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>babel-preset-my-awesome-preset<span
-                      class="pl-pds">"</span></span>,
-  <span class="pl-s"><span class="pl-pds">"</span>version<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span
-                      class="pl-s"><span class="pl-pds">"</span>1.0.0<span class="pl-pds">"</span></span>,
-  <span class="pl-s"><span class="pl-pds">"</span>author<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span
-                      class="pl-s"><span class="pl-pds">"</span>James Kyle &lt;me@thejameskyle.com&gt;<span
-                      class="pl-pds">"</span></span>,
-  <span class="pl-s"><span class="pl-pds">"</span>dependencies<span class="pl-pds">"</span></span><span
-                      class="pl-k">:</span> {
-    <span class="pl-s"><span class="pl-pds">"</span>babel-preset-es2015<span class="pl-pds">"</span></span><span
-                      class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>^6.3.13<span class="pl-pds">"</span></span>,
-    <span class="pl-s"><span class="pl-pds">"</span>babel-preset-react<span class="pl-pds">"</span></span><span
-                      class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>^6.3.13<span class="pl-pds">"</span></span>,
-    <span class="pl-s"><span class="pl-pds">"</span>babel-plugin-transform-flow-strip-types<span class="pl-pds">"</span></span><span
-                      class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>^6.3.15<span class="pl-pds">"</span></span>
+  <span class="pl-s"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>babel-preset-my-awesome-preset<span class="pl-pds">"</span></span>,
+  <span class="pl-s"><span class="pl-pds">"</span>version<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>1.0.0<span class="pl-pds">"</span></span>,
+  <span class="pl-s"><span class="pl-pds">"</span>author<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>James Kyle &lt;me@thejameskyle.com&gt;<span class="pl-pds">"</span></span>,
+  <span class="pl-s"><span class="pl-pds">"</span>dependencies<span class="pl-pds">"</span></span><span class="pl-k">:</span> {
+    <span class="pl-s"><span class="pl-pds">"</span>babel-preset-es2015<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>^6.3.13<span class="pl-pds">"</span></span>,
+    <span class="pl-s"><span class="pl-pds">"</span>babel-preset-react<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>^6.3.13<span class="pl-pds">"</span></span>,
+    <span class="pl-s"><span class="pl-pds">"</span>babel-plugin-transform-flow-strip-types<span class="pl-pds">"</span></span><span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>^6.3.15<span class="pl-pds">"</span></span>
   }
-}</pre>
-                  </div>
+}</pre></div>
 
-                  <p>Then create an <code>index.js</code> file that exports the contents of your <code>.babelrc</code>
-                    file, replacing plugin/preset strings with <code>require</code> calls.</p>
+                  <p>然后创建 <code>index.js</code> 文件用于导出 <code>.babelrc</code> 的内容，使用对应的 <code>require</code> 调用来替换 plugins／presets 字符串。</p>
 
-                  <div class="highlight highlight-source-js"><pre><span class="pl-c1">module</span>.<span
-                    class="pl-smi">exports</span> <span class="pl-k">=</span> {
+                  <div class="highlight highlight-source-js"><pre><span class="pl-c1">module</span>.<span class="pl-smi">exports</span> <span class="pl-k">=</span> {
   presets<span class="pl-k">:</span> [
-    <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">"</span><span><a
-                      class="octolinker-link octolinker-line-indicator" data-resolver="javascriptUniversal"
-                      data-target="babel-preset-es2015"
-                      data-path="/thejameskyle/babel-handbook/blob/f8921a25784f009efdd056a6991e26af8497b853/translations/en/user-handbook.md"><span>babel-preset-es2015</span></a></span><span
-                      class="pl-pds">"</span></span>),
-    <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">"</span><span><a
-                      class="octolinker-link octolinker-line-indicator" data-resolver="javascriptUniversal"
-                      data-target="babel-preset-react"
-                      data-path="/thejameskyle/babel-handbook/blob/f8921a25784f009efdd056a6991e26af8497b853/translations/en/user-handbook.md"><span>babel-preset-react</span></a></span><span
-                      class="pl-pds">"</span></span>)
+    <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">"</span><span><a class="octolinker-link octolinker-line-indicator" data-resolver="javascriptUniversal" data-target="babel-preset-es2015" data-path="/thejameskyle/babel-handbook/blob/f8921a25784f009efdd056a6991e26af8497b853/translations/zh-Hans/user-handbook.md"><span>babel-preset-es2015</span></a></span><span class="pl-pds">"</span></span>),
+    <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">"</span><span><a class="octolinker-link octolinker-line-indicator" data-resolver="javascriptUniversal" data-target="babel-preset-react" data-path="/thejameskyle/babel-handbook/blob/f8921a25784f009efdd056a6991e26af8497b853/translations/zh-Hans/user-handbook.md"><span>babel-preset-react</span></a></span><span class="pl-pds">"</span></span>)
   ],
   plugins<span class="pl-k">:</span> [
-    <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">"</span><span><a
-                      class="octolinker-link octolinker-line-indicator" data-resolver="javascriptUniversal"
-                      data-target="babel-plugin-transform-flow-strip-types"
-                      data-path="/thejameskyle/babel-handbook/blob/f8921a25784f009efdd056a6991e26af8497b853/translations/en/user-handbook.md"><span>babel-plugin-transform-flow-strip-types</span></a></span><span
-                      class="pl-pds">"</span></span>)
+    <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">"</span><span><a class="octolinker-link octolinker-line-indicator" data-resolver="javascriptUniversal" data-target="babel-plugin-transform-flow-strip-types" data-path="/thejameskyle/babel-handbook/blob/f8921a25784f009efdd056a6991e26af8497b853/translations/zh-Hans/user-handbook.md"><span>babel-plugin-transform-flow-strip-types</span></a></span><span class="pl-pds">"</span></span>)
   ]
-};</pre>
-                  </div>
+};</pre></div>
 
-                  <p>Then simply publish this to npm and you can use it like you would any preset.</p>
+                  <p>然后只需要发布到 npm 于是你就可以像其它预设一样来使用你的预设了。</p>
 
                   <hr>
 
-                  <h1><a id="user-content-babel-and-other-tools" class="anchor" href="#babel-and-other-tools"
-                         aria-hidden="true">
-                    <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16"
-                         width="16">
-                      <path fill-rule="evenodd"
-                            d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
-                    </svg>
-                  </a><a id="user-content-toc-babel-and-other-tools"></a>Babel and other tools
-                  </h1>
+                  <h1><a id="user-content-babel-和其他工具" class="anchor" href="#babel-和其他工具" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a id="user-content-toc-babel-and-other-tools"></a>Babel 和其他工具</h1>
 
-                  <p>Babel is pretty straight forward to setup once you get the hang of it, but it
-                    can be rather difficult navigating how to set it up with other tools. However,
-                    we try to work closely with other projects in order to make the experience as
-                    easy as possible.</p>
+                  <p>一旦你掌握的窍门，安装 Babel 还是十分简明的，不过和其他工具搭配在一起就会变得困难多了。 不过我们一直在与其他项目密切合作以确保这种体验尽可能简单。</p>
 
-                  <h2><a id="user-content-static-analysis-tools" class="anchor" href="#static-analysis-tools"
-                         aria-hidden="true">
-                    <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16"
-                         width="16">
-                      <path fill-rule="evenodd"
-                            d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
-                    </svg>
-                  </a><a id="user-content-toc-static-analysis-tools"></a>Static analysis tools
-                  </h2>
+                  <h2><a id="user-content-静态分析工具" class="anchor" href="#静态分析工具" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a id="user-content-toc-static-analysis-tools"></a>静态分析工具</h2>
 
-                  <p>Newer standards bring a lot of new syntax to the language and static analysis
-                    tools are just starting to take advantage of it.</p>
+                  <p>新标准为语言带来了许多新的语法，静态分析工具正在将此利用起来。</p>
 
-                  <h3><a id="user-content-linting" class="anchor" href="#linting" aria-hidden="true">
-                    <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16"
-                         width="16">
-                      <path fill-rule="evenodd"
-                            d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
-                    </svg>
-                  </a><a id="user-content-toc-linting"></a>Linting
-                  </h3>
+                  <h3><a id="user-content-语法检查linting" class="anchor" href="#语法检查linting" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a id="user-content-toc-linting"></a>语法检查（Linting）</h3>
 
-                  <p>One of the most popular tools for linting is <a href="http://eslint.org">ESLint</a>,
-                    because of this we maintain an official
-                    <a href="https://github.com/babel/babel-eslint" class="ghh-repo-x tooltipstered" title=""
-                       style="box-shadow: transparent 0px 0px;"><code>babel-eslint</code></a> integration.</p>
+                  <p><a href="http://eslint.org">ESLint</a> 是最流行的语法检查工具之一，因此我们维护了一个官方的 <a href="https://github.com/babel/babel-eslint" class="ghh-repo-x tooltipstered" title="" style="box-shadow: transparent 0px 0px;"><code>babel-eslint</code></a> 整合软件包。</p>
 
-                  <p>First install <code>eslint</code> and <code>babel-eslint</code>.</p>
+                  <p>首先安装 <code>eslint</code> 和 <code>babel-eslint</code>。.</p>
 
-                  <div class="highlight highlight-source-shell">
-                    <pre>$ npm install --save-dev eslint babel-eslint</pre>
-                  </div>
+                  <div class="highlight highlight-source-shell"><pre>$ npm install --save-dev eslint babel-eslint</pre></div>
 
-                  <p>Next create or use the existing <code>.eslintrc</code> file in your project and set the
-                    <code>parser</code> as <code>babel-eslint</code>.</p>
+                  <p>然后创建或使用项目现有的 <code>.eslintrc</code> 文件并设置 <code>parser</code> 为 <code>babel-eslint</code>。.</p>
 
                   <div class="highlight highlight-source-diff"><pre>  {
 <span class="pl-mi1"><span class="pl-mi1">+</span>   "parser": "babel-eslint",</span>
     "rules": {
       ...
     }
-  }</pre>
-                  </div>
+  }</pre></div>
 
-                  <p>Now add a <code>lint</code> task to your npm <code>package.json</code> scripts:</p>
+                  <p>现在添加一个 <code>lint</code> 任务到 npm 的 <code>package.json</code> 脚本中：</p>
 
                   <div class="highlight highlight-source-diff"><pre>  {
     "name": "my-module",
@@ -2091,246 +1603,108 @@ $ [COMMAND]</pre>
       "babel-eslint": "...",
       "eslint": "..."
     }
-  }</pre>
-                  </div>
+  }</pre></div>
 
-                  <p>Then just run the task and you will be all setup.</p>
+                  <p>接着只需要运行这个任务就一切就绪了。</p>
 
-                  <div class="highlight highlight-source-shell">
-                    <pre>$ npm run lint</pre>
-                  </div>
+                  <div class="highlight highlight-source-shell"><pre>$ npm run lint</pre></div>
 
-                  <p>For more information consult the
-                    <a href="https://github.com/babel/babel-eslint" class="ghh-repo-x tooltipstered" title=""
-                       style="box-shadow: transparent 0px 0px;"><code>babel-eslint</code></a> or
-                    <a href="http://eslint.org"><code>eslint</code></a> documentation.</p>
+                  <p>详细信息请咨询 <a href="https://github.com/babel/babel-eslint" class="ghh-repo-x tooltipstered" title="" style="box-shadow: transparent 0px 0px;"><code>babel-eslint</code></a> 或者 <a href="http://eslint.org"><code>eslint</code></a> 的文档。</p>
 
-                  <h3><a id="user-content-code-style" class="anchor" href="#code-style" aria-hidden="true">
-                    <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16"
-                         width="16">
-                      <path fill-rule="evenodd"
-                            d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
-                    </svg>
-                  </a><a id="user-content-toc-code-style"></a>Code Style
-                  </h3>
+                  <h3><a id="user-content-代码风格" class="anchor" href="#代码风格" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a id="user-content-toc-code-style"></a>代码风格</h3>
 
-                  <p>JSCS is an extremely popular tool for taking linting a step further into
-                    checking the style of the code itself. A core maintainer of both the Babel and
-                    JSCS projects (<a href="https://github.com/hzoo" class="ghh-user-x tooltipstered" title=""
-                                      style="box-shadow: transparent 0px 0px;">@hzoo</a>) maintains an official
-                    integration with JSCS.</p>
+                  <p>JSCS 是一个极受欢迎的工具，在语法检查的基础上更进一步检查代码自身的风格。 Babel 和 JSCS 项目的核心维护者之一（<a href="https://github.com/hzoo" class="ghh-user-x tooltipstered" title="" style="box-shadow: transparent 0px 0px;">@hzoo</a>）维护着 JSCS 的官方集成。</p>
 
-                  <p>Even better, this integration now lives within JSCS itself under the <code>--esnext</code>
-                    option. So integrating Babel is as easy as:</p>
+                  <p>更妙的是，JSCS 自己通过 <code>--esnext</code> 选项实现了这种集成，于是和 Babel 的集成就简化成了直接在命令行运行：</p>
 
                   <pre><code>$ jscs . --esnext
 </code></pre>
 
-                  <p>From the cli, or adding the <code>esnext</code> option to your <code>.jscsrc</code> file.</p>
+                  <p>或者在 <code>.jscsrc</code> 文件里添加 <code>esnext</code> 选项。</p>
 
                   <div class="highlight highlight-source-diff"><pre>  {
     "preset": "airbnb",
 <span class="pl-mi1"><span class="pl-mi1">+</span>   "esnext": true</span>
-  }</pre>
-                  </div>
+  }</pre></div>
 
-                  <p>For more information consult the
-                    <a href="https://github.com/jscs-dev/babel-jscs" class="ghh-repo-x tooltipstered" title=""
-                       style="box-shadow: transparent 0px 0px;"><code>babel-jscs</code></a> or
-                    <a href="http://jscs.info"><code>jscs</code></a> documentation.</p>
+                  <p>详细信息请咨询 <a href="https://github.com/jscs-dev/babel-jscs" class="ghh-repo-x tooltipstered" title="" style="box-shadow: transparent 0px 0px;"><code>babel-jscs</code></a> 或是 <a href="http://jscs.info"><code>jscs</code></a> 的文档。</p>
 
 
-                  <h3><a id="user-content-documentation" class="anchor" href="#documentation" aria-hidden="true">
-                    <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16"
-                         width="16">
-                      <path fill-rule="evenodd"
-                            d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
-                    </svg>
-                  </a><a id="user-content-toc-documentation"></a>Documentation
-                  </h3>
 
-                  <p>Using Babel, ES2015, and Flow you can infer a lot about your code. Using
-                    <a href="http://documentation.js.org">documentation.js</a> you can generate detailed API
-                    documentation very easily.</p>
+                  <h3><a id="user-content-文档" class="anchor" href="#文档" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a id="user-content-toc-documentation"></a>文档</h3>
 
-                  <p>Documentation.js uses Babel behind the scenes to support all of the latest
-                    syntax including Flow annotations in order to declare the types in your code.</p>
+                  <p>使用 Babel，ES2015，还有 Flow 你可以对你的代码进行大量的推断。使用 <a href="http://documentation.js.org">documentation.js</a> 可以非常简便地生成详细的 API 文档。</p>
 
-                  <h2><a id="user-content-frameworks" class="anchor" href="#frameworks" aria-hidden="true">
-                    <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16"
-                         width="16">
-                      <path fill-rule="evenodd"
-                            d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
-                    </svg>
-                  </a><a id="user-content-toc-frameworks"></a>Frameworks
-                  </h2>
+                  <p>Documentation.js 使用 Babel 来支持所有最新的语法，包括用于在你的代码中声明类型所用的 Flow 注解在内，</p>
 
-                  <p>All of the major JavaScript frameworks are now focused on aligning their APIs
-                    around the future of the language. Because of this, there has been a lot of work
-                    going into the tooling.</p>
+                  <h2><a id="user-content-框架" class="anchor" href="#框架" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a id="user-content-toc-frameworks"></a>框架</h2>
 
-                  <p>Frameworks have the opportunity not just to use Babel but to extend it in ways
-                    that improve their users' experience.</p>
+                  <p>所有主流的 JavaScript 框架都正在努力调整他们的 APIs 向这门语言的未来看齐。有鉴于此，配套工具方面已经做出了大量的工作。</p>
 
-                  <h3><a id="user-content-react" class="anchor" href="#react" aria-hidden="true">
-                    <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16"
-                         width="16">
-                      <path fill-rule="evenodd"
-                            d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
-                    </svg>
-                  </a><a id="user-content-toc-react"></a>React
-                  </h3>
+                  <p>除了使用 Babel 以外，框架更有条件去扩展 Babel 来帮助他们提升用户体验。</p>
 
-                  <p>React has dramatically changed their API to align with ES2015 classes
-                    (<a href="https://babeljs.io/blog/2015/06/07/react-on-es6-plus">Read about the updated API here</a>).
-                    Even further, React relies on Babel to compile it's JSX syntax, deprecating it's
-                    own custom tooling in favor of Babel. You can start by setting up the
-                    <code>babel-preset-react</code> package following the
-                    <a href="#babel-preset-react">instructions above</a>.</p>
+                  <h3><a id="user-content-react" class="anchor" href="#react" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a id="user-content-toc-react"></a>React</h3>
 
-                  <p>The React community took Babel and ran with it. There are now a number of
-                    transforms
-                    <a href="https://www.npmjs.com/search?q=babel-plugin+react">built by the community</a>.</p>
+                  <p>React 已经大幅改变了他们的 API 以适应 ES2015 的类语法（<a href="https://babeljs.io/blog/2015/06/07/react-on-es6-plus">此处了解更新的 API</a>）。 特别是 React 现在依赖 Babel 编译它的 JSX 语法且弃用了它原有的自定义工具。 你可以按照<a href="#babel-preset-react">上述说明</a>安装 <code>babel-preset-react</code> 包来开始。.</p>
 
-                  <p>Most notably the
-                    <a href="https://github.com/gaearon/babel-plugin-react-transform" class="ghh-repo-x tooltipstered"
-                       title="" style="box-shadow: transparent 0px 0px;"><code>babel-plugin-react-transform</code></a>
-                    plugin which combined with a number of
-                    <a href="https://github.com/gaearon/babel-plugin-react-transform#transforms"
-                       class="ghh-repo-x tooltipstered" title="" style="box-shadow: transparent 0px 0px;">React-specific
-                      transforms</a>
-                    can enable things like <em>hot module reloading</em> and other debugging utilities.</p>
+                  <p>React 社区采用 Babel 并围绕它来运行，现在社区已经创建了<a href="https://www.npmjs.com/search?q=babel-plugin+react">大量的转换器（transforms）</a>。.</p>
+
+                  <p>最令人瞩目的是 <a href="https://github.com/gaearon/babel-plugin-react-transform" class="ghh-repo-x tooltipstered" title="" style="box-shadow: transparent 0px 0px;"><code>babel-plugin-react-transform</code></a> 插件，它集成了大量 <a href="https://github.com/gaearon/babel-plugin-react-transform#transforms" class="ghh-repo-x tooltipstered" title="" style="box-shadow: transparent 0px 0px;">React 专用转换器</a>可以启用诸如 <em>热模块重载</em>等其他调试工具。</p>
 
 
-                  <h2><a id="user-content-text-editors-and-ides" class="anchor" href="#text-editors-and-ides"
-                         aria-hidden="true">
-                    <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16"
-                         width="16">
-                      <path fill-rule="evenodd"
-                            d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
-                    </svg>
-                  </a><a id="user-content-toc-text-editors-and-ides"></a>Text Editors and IDEs
-                  </h2>
 
-                  <p>Introducing ES2015, JSX, and Flow syntax with Babel can be helpful, but if your
-                    text editor doesn't support it then it can be a really bad experience. For this
-                    reason you will want to setup your text editor or IDE with a Babel plugin.</p>
+                  <h2><a id="user-content-文本编辑器和-ides集成开发环境" class="anchor" href="#文本编辑器和-ides集成开发环境" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a id="user-content-toc-text-editors-and-ides"></a>文本编辑器和 IDEs（集成开发环境）</h2>
+
+                  <p>通过 Babel 引入 ES2015，JSX，和流式语法固然是大有裨益，可如果你的文本编辑不支持那可就糟糕透了。 因此，别忘了为你的文本编辑器或是 IDE 安装 Babel 插件。</p>
 
                   <ul>
-                    <li><a href="https://github.com/babel/babel-sublime" class="ghh-repo-x tooltipstered" title=""
-                           style="box-shadow: transparent 0px 0px;">Sublime Text</a></li>
+                    <li><a href="https://github.com/babel/babel-sublime" class="ghh-repo-x tooltipstered" title="" style="box-shadow: transparent 0px 0px;">Sublime Text</a></li>
                     <li><a href="https://atom.io/packages/language-babel">Atom</a></li>
-                    <li><a href="https://github.com/jbgutierrez/vim-babel" class="ghh-repo-x tooltipstered" title=""
-                           style="box-shadow: transparent 0px 0px;">Vim</a></li>
+                    <li><a href="https://github.com/jbgutierrez/vim-babel" class="ghh-repo-x tooltipstered" title="" style="box-shadow: transparent 0px 0px;">Vim</a></li>
                     <li><a href="https://babeljs.io/docs/setup/#webstorm">WebStorm</a></li>
                   </ul>
 
 
+
                   <hr>
 
-                  <h1><a id="user-content-babel-support" class="anchor" href="#babel-support" aria-hidden="true">
-                    <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16"
-                         width="16">
-                      <path fill-rule="evenodd"
-                            d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
-                    </svg>
-                  </a><a id="user-content-toc-babel-support"></a>Babel Support
-                  </h1>
+                  <h1><a id="user-content-babel-支持" class="anchor" href="#babel-支持" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a id="user-content-toc-babel-support"></a>Babel 支持</h1>
 
-                  <p>Babel has a very large and quickly growing community, as we grow we want to
-                    ensure that people have all the resources they need to be successful. So we
-                    provide a number of different channels for getting support.</p>
+                  <p>Babel 的社区非常庞大并且增长速度很快，伴随着我们成长的同时我们希望保证人们总能获取他们需要的所有资源。 所以我们提供了数种途径来提供支持。</p>
 
-                  <p>Remember that across all of these communities we enforce a
-                    <a href="https://github.com/babel/babel/blob/master/CODE_OF_CONDUCT.md">Code of Conduct</a>.
-                    If you break the Code of Conduct, action will be taken. So please read it and
-                    be conscious of it when interacting with others.</p>
+                  <p>谨记在所有的这些沟通渠道里我们都共同遵守一套<a href="https://github.com/babel/babel/blob/master/CODE_OF_CONDUCT.md">行为准则</a>。 破坏准则的行为会被处理。 所以请阅读它并在与他人互动时注意自己的行为。</p>
 
-                  <p>We are also looking to grow a self-supporting community, for people who stick
-                    around and support others. If you find someone asking a question you know the
-                    answer to, take a few minutes and help them out. Try your best to be kind and
-                    understanding when doing so.</p>
+                  <p>同时我们也在寻求发展一个自我支持式的社区，为那些始终热诚奉献的人们。 如果别人问的问题你恰好知道答案，请不吝花费几分钟帮帮他们。 在此过程中也请尽力保持友善与相互理解。</p>
 
-                  <h2><a id="user-content-babel-forum" class="anchor" href="#babel-forum" aria-hidden="true">
-                    <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16"
-                         width="16">
-                      <path fill-rule="evenodd"
-                            d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
-                    </svg>
-                  </a><a id="user-content-toc-babel-forum"></a>Babel Forum
-                  </h2>
+                  <h2><a id="user-content-babel-论坛" class="anchor" href="#babel-论坛" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a id="user-content-toc-babel-forum"></a>Babel 论坛</h2>
 
-                  <p><a href="http://www.discourse.org">Discourse</a> has provided us with a hosted version of
-                    their forum software for free (and we love them for it!). If forums are your
-                    thing please stop by <a href="https://discuss.babeljs.io">discuss.babeljs.io</a>.</p>
+                  <p><a href="http://www.discourse.org">Discourse</a> 免费为我们提供了一个托管版本的论坛（我们爱死他们了！）。 如果你是个论坛控请不要错过 <a href="https://discuss.babeljs.io">discuss.babeljs.io</a>。.</p>
 
-                  <h2><a id="user-content-babel-chat" class="anchor" href="#babel-chat" aria-hidden="true">
-                    <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16"
-                         width="16">
-                      <path fill-rule="evenodd"
-                            d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
-                    </svg>
-                  </a><a id="user-content-toc-babel-chat"></a>Babel Chat
-                  </h2>
+                  <h2><a id="user-content-babel-聊天" class="anchor" href="#babel-聊天" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a id="user-content-toc-babel-chat"></a>Babel 聊天</h2>
 
-                  <p>Everyone loves <a href="https://slack.com">Slack</a>. If you're looking for immediate
-                    support from the community then come chat with us at
-                    <a href="https://slack.babeljs.io">slack.babeljs.io</a>.</p>
+                  <p>无人不爱 <a href="https://slack.com">Slack</a>。如果你正在寻求来自社区的即时支持，那就来 <a href="https://slack.babeljs.io">slack.babeljs.io</a> 和我们聊天吧。.</p>
 
 
-                  <h2><a id="user-content-babel-issues" class="anchor" href="#babel-issues" aria-hidden="true">
-                    <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16"
-                         width="16">
-                      <path fill-rule="evenodd"
-                            d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
-                    </svg>
-                  </a><a id="user-content-toc-babel-issues"></a>Babel Issues
-                  </h2>
 
-                  <p>Babel uses the awesome issue tracker provided by
-                    <a href="http://phabricator.org">Phabricator</a> an open source software development
-                    platform that makes GitHub issues a nightmare of the past.</p>
+                  <h2><a id="user-content-babel-问题" class="anchor" href="#babel-问题" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a id="user-content-toc-babel-issues"></a>Babel 问题</h2>
 
-                  <p>Babel's Phabricator is available at
-                    <a href="https://phabricator.babeljs.io">phabricator.babeljs.io</a>. You can see all the
-                    open and closed issues on
-                    <a href="https://phabricator.babeljs.io/maniphest/">maniphest</a>.</p>
+                  <p>Babel 使用了 <a href="http://phabricator.org">Phabricator</a> 这个非常棒的问题跟踪应用，这是一个能让 Github 问题追踪变成昨日黄花的开源软件开发平台。</p>
 
-                  <p>If you want to open a new issue:</p>
+                  <p>Babel 的 Phabricator 地址是：<a href="https://phabricator.babeljs.io">phabricator.babeljs.io</a> 你可以在 <a href="https://phabricator.babeljs.io/maniphest/">maniphest</a> 查看所有打开和关闭的问题。.</p>
+
+                  <p>如果你想要打开一个新的问题：</p>
 
                   <ul>
-                    <li><a href="https://phabricator.babeljs.io/maniphest/query/advanced/">Search for an existing
-                      issue</a></li>
-                    <li><a href="https://phabricator.babeljs.io/auth/start/">Login</a> or
-                      <a href="https://phabricator.babeljs.io/auth/register/">Create an account</a> (You can
-                      also login using GitHub, Facebook, Twitter, Google, etc.)
-                    </li>
-                    <li><a
-                      href="https://phabricator.babeljs.io/maniphest/task/create/?projects=PHID-PROJ-2ufzspoyuk4udiwfnzls#R">Create
-                      a new bug report</a>
-                      or <a
-                        href="https://phabricator.babeljs.io/maniphest/task/create/?projects=PHID-PROJ-dfaevtocl5zgjtstjijd#R">request
-                        a new feature</a></li>
+                    <li><a href="https://phabricator.babeljs.io/maniphest/query/advanced/">先搜搜看有没有现存的类似问题</a></li>
+                    <li><a href="https://phabricator.babeljs.io/auth/start/">登录</a>或<a href="https://phabricator.babeljs.io/auth/register/">注册账号</a>（你可以使用 GitHub, Facebook, Twitter, Google 等账号直接登录)</li>
+                    <li><a href="https://phabricator.babeljs.io/maniphest/task/create/?projects=PHID-PROJ-2ufzspoyuk4udiwfnzls#R">创建新的错误报告</a>或者<a href="https://phabricator.babeljs.io/maniphest/task/create/?projects=PHID-PROJ-dfaevtocl5zgjtstjijd#R">请求新的功能特性</a></li>
                   </ul>
 
-                  <h3><a id="user-content-creating-an-awesome-babel-bug-report" class="anchor"
-                         href="#creating-an-awesome-babel-bug-report" aria-hidden="true">
-                    <svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16"
-                         width="16">
-                      <path fill-rule="evenodd"
-                            d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
-                    </svg>
-                  </a><a id="user-content-toc-creating-an-awesome-babel-bug-report"></a>Creating an awesome Babel bug
-                    report
-                  </h3>
+                  <h3><a id="user-content-创建漂亮的-babel-错误报告" class="anchor" href="#创建漂亮的-babel-错误报告" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a id="user-content-toc-creating-an-awesome-babel-bug-report"></a>创建漂亮的 Babel 错误报告</h3>
 
-                  <p>Babel issues can sometimes be very difficult to debug remotely, so we need all
-                    the help we can get. Spending a few more minutes crafting a really nice bug
-                    report can help get your problem solved significantly faster.</p>
+                  <p>Babel 的问题有时候很难远程调试，所以我们希望能获取尽可能详细的信息来帮助我们解决问题。 花点时间去撰写一份好的错误报告会让你的问题更快得到解决。</p>
 
-                  <p>First, try isolating your problem. It's extremely unlikely that every part of
-                    your setup is contributing to the problem. If your problem is a piece of input
-                    code, try deleting as much code as possible that still causes an issue.</p>
+                  <p>首先，尝试隔离问题。 并非设置过程的每一步都是导致问题的原因。 如果你的问题是一段输入代码，试着尽可能把与问题不相关的代码都删除掉。</p>
 
                   <blockquote>
                     <p>[WIP]</p>
@@ -2339,9 +1713,7 @@ $ [COMMAND]</pre>
                   <hr>
 
                   <blockquote>
-                    <p><strong><em>For future updates, follow <a
-                      href="https://twitter.com/thejameskyle">@thejameskyle</a>
-                      on Twitter.</em></strong></p>
+                    <p><strong><em>在 Twitter 上关注 <a href="https://twitter.com/thejameskyle">@thejameskyle</a>，第一时间获取更新。</em></strong></p>
                   </blockquote>
                 </article>
               </div>
