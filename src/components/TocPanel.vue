@@ -44,7 +44,9 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   .toc-list {
-    height: 500px;
+    max-height: 500px;
+    height: auto;
+    max-width: 300px;
     overflow: auto;
   }
   .toc-list > .tree-view {
