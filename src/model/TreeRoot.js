@@ -5,7 +5,8 @@ class TreeRoot extends TreeNode {
     super(generateNodeId(treeId, 0))
 
     this.treeId = treeId
-    this.nIdCache = this.nId = 0
+    this.nId = 0
+    this.nIdCache = this.nId
     this.root = this
 
     this.setParent()
