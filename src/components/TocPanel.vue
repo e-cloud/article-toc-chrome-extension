@@ -1,7 +1,7 @@
 <template>
   <div class="toc-panel">
     <TocPanelHeader></TocPanelHeader>
-    <ul class="toc-list" v-prevent-scroll>
+    <ul class="toc-list" v-prevent-parent-scroll>
       <TreeViewRoot v-for="(rootNode, index) in treeList" :data-node="rootNode"></TreeViewRoot>
     </ul>
     <TocPanelFooter></TocPanelFooter>
@@ -12,7 +12,6 @@
   import TreeViewRoot from './TreeViewRoot'
   import TocPanelFooter from './TocPanelFooter'
   import TocPanelHeader from './TocPanelHeader'
-  import preventParentScroll from '../util/preventParentScroll'
 
   export default {
     name: 'toc-panel',
@@ -25,13 +24,6 @@
       TreeViewRoot,
       TocPanelFooter,
       TocPanelHeader
-    },
-    directives: {
-      preventScroll: {
-        inserted(el) {
-          preventParentScroll(el)
-        }
-      }
     },
     data() {
       return {
