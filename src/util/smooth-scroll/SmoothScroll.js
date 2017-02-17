@@ -13,7 +13,7 @@
 // without getting a written permission first.
 //
 /* eslint-disable */
-(function () {
+
 
 // Scroll Variables (tweakable)
   const defaultOptions = {
@@ -87,8 +87,6 @@
 
     const body = document.body;
     const html = document.documentElement;
-    const windowHeight = window.innerHeight;
-    const scrollHeight = body.scrollHeight;
 
     // check compat mode for root element
     root = (document.compatMode.includes('CSS')) ? html : body;
@@ -99,55 +97,6 @@
     // Checks if this script is running in a frame
     if (top !== self) {
       isFrame = true;
-    }
-
-    /**
-     * Safari 10 fixed it, Chrome fixed it in v45:
-     * This fixes a bug where the areas left and right to
-     * the content does not trigger the onmousewheel event
-     * on some pages. e.g.: html, body { height: 100% }
-     */
-    else if (isOldSafari &&
-             scrollHeight > windowHeight &&
-             (body.offsetHeight <= windowHeight ||
-              html.offsetHeight <= windowHeight)) {
-
-      const fullPageElem = document.createElement('div');
-      fullPageElem.style.cssText = `position:absolute; z-index:-10000; top:0; left:0; right:0; height:${root.scrollHeight}px`;
-      document.body.appendChild(fullPageElem);
-
-      // DOM changed (throttled) to fix height
-      let pendingRefresh;
-      refreshSize = function () {
-        if (pendingRefresh) return; // could also be: clearTimeout(pendingRefresh);
-        pendingRefresh = setTimeout(function () {
-          if (isExcluded) return; // could be running after cleanup
-          fullPageElem.style.height = '0';
-          fullPageElem.style.height = `${root.scrollHeight}px`;
-          pendingRefresh = null;
-        }, 500); // act rarely to stay fast
-      };
-
-      setTimeout(refreshSize, 10);
-
-      addEvent('resize', refreshSize);
-
-      // TODO: attributeFilter?
-      const config = {
-        attributes: true,
-        childList: true,
-        characterData: false
-        // subtree: true
-      };
-
-      observer = new MutationObserver(refreshSize);
-      observer.observe(body, config);
-
-      if (root.offsetHeight <= windowHeight) {
-        const clearfix = document.createElement('div');
-        clearfix.style.clear = 'both';
-        body.appendChild(clearfix);
-      }
     }
 
     // disable fixed background
@@ -269,7 +218,7 @@
       }
 
       if (que.length) {
-        requestFrame(step, elem, (1000 / options.frameRate + 1));
+        requestFrame(step, (1000 / options.frameRate + 1));
       } else {
         pending = false;
       }
@@ -635,7 +584,7 @@
     return (window.requestAnimationFrame ||
             window.webkitRequestAnimationFrame ||
             window.mozRequestAnimationFrame ||
-            function (callback, element, delay) {
+            function (callback, delay) {
               window.setTimeout(callback, delay || (1000 / 60));
             });
   })();
@@ -652,7 +601,6 @@
         dummy.style.cssText = 'height:10000px;width:1px;';
         document.body.appendChild(dummy);
         const bodyScrollTop = document.body.scrollTop;
-        const docElScrollTop = document.documentElement.scrollTop;
         window.scrollBy(0, 3);
         if (document.body.scrollTop !== bodyScrollTop) {
           (SCROLL_ROOT = document.body);
@@ -711,11 +659,10 @@
 
   const userAgent = window.navigator.userAgent;
   const isEdge = /Edge/.test(userAgent); // thank you MS
-  var isChrome = /chrome/i.test(userAgent) && !isEdge;
+  const isChrome = /chrome/i.test(userAgent) && !isEdge;
   const isSafari = /safari/i.test(userAgent) && !isEdge;
   const isMobile = /mobile/i.test(userAgent);
   const isIEWin7 = /Windows NT 6.1/i.test(userAgent) && /rv:11/i.test(userAgent);
-  var isOldSafari = isSafari && (/Version\/8/i.test(userAgent) || /Version\/9/i.test(userAgent));
   const isEnabledForBrowser = (isChrome || isSafari || isIEWin7) && !isMobile;
 
   var wheelEvent;
@@ -751,14 +698,3 @@
     SmoothScroll(window.SmoothScrollOptions);
   }
 
-  if (typeof define === 'function' && define.amd) {
-    define(function () {
-      return SmoothScroll;
-    });
-  } else if ('object' === typeof exports) {
-    module.exports = SmoothScroll;
-  } else {
-    window.SmoothScroll = SmoothScroll;
-  }
-
-})();
