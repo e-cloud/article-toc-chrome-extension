@@ -1,10 +1,10 @@
-export function enableDetectingHistoryState() {
+export default function enableDetectingHistoryState() {
   function decorateHistory(type) {
     const orig = history[type];
-    return function () {
-      const rv = orig.apply(this, arguments);
+    return function (...args) {
+      const rv = orig.apply(this, args);
       const e = new Event(type);
-      e.arguments = arguments;
+      e.arguments = args;
       window.dispatchEvent(e);
       return rv;
     };
