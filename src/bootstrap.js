@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from './App'
-import extractTree from './extractTreeData'
+import extractTree from './util/extractTreeData'
 import './directives/preventParentScroll.directive'
 
 

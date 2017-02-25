@@ -1,5 +1,5 @@
-import TreeNode from './model/TreeNode'
-import TreeRoot from './model/TreeRoot'
+import TreeNode from '../model/TreeNode'
+import TreeRoot from '../model/TreeRoot'
 
 const headerSelector = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].join(', ')
 
