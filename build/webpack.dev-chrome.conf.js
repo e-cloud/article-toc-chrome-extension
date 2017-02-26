@@ -16,11 +16,11 @@ module.exports = merge(baseWebpackConfig, {
   },
   module: {
     rules: utils.styleLoaders({
-      sourceMap: false,
+      sourceMap: true,
       extract: true
     })
   },
-  devtool: false,
+  devtool: 'module-source-map',
   plugins: [
     new webpack.DefinePlugin({
       'process.env': config.dev.env
