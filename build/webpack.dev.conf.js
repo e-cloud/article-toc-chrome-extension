@@ -12,6 +12,9 @@ Object.keys(baseWebpackConfig.entry).forEach(function (name) {
 })
 
 module.exports = merge(baseWebpackConfig, {
+  entry: {
+    app: './src/main.sample.js'
+  },
   output: {
     pathinfo: true
   },
