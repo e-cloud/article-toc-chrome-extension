@@ -12,7 +12,7 @@
   "content_scripts": [
     {
       "matches": [
-        "https://github.com/*"
+        "<all_urls>"
       ],
       "js": [
         "static/js/app.js"
@@ -20,7 +20,7 @@
       "css": [
         "static/css/app.css"
       ],
-      "run_at": "document_start"
+      "run_at": "document_idle"
     }
   ],
   "options_ui": {
