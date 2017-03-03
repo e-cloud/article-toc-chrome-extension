@@ -1,6 +1,5 @@
 <template>
   <div class="toc-panel-footer">
-    footer
   </div>
 </template>
 
@@ -17,5 +16,8 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+  .toc-panel-footer {
+    font-size: 0;
+    padding: 5px;
+  }
 </style>

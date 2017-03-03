@@ -34,7 +34,8 @@
       },
       href() {
         if (this.header) {
-          return this.header.querySelector(anchorSelector).id || this.header.id
+          const aLink = this.header.querySelector(anchorSelector)
+          return aLink ? aLink.id : this.header.id
         }
         return ''
       }
