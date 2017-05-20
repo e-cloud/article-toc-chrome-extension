@@ -2,7 +2,7 @@
   <div class="toc-panel">
     <TocPanelHeader></TocPanelHeader>
     <ul class="toc-list" v-prevent-parent-scroll>
-      <TreeViewRoot v-for="(rootNode, index) in treeList" :data-node="rootNode"></TreeViewRoot>
+      <TreeViewRoot v-for="(rootNode, index) in treeList" :key="rootNode.tId" :data-node="rootNode"></TreeViewRoot>
     </ul>
     <TocPanelFooter></TocPanelFooter>
   </div>

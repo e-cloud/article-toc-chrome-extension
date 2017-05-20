@@ -1,7 +1,7 @@
 <template>
   <li class="tree-view-root">
     <ul class="sub-tree-list" v-if="dataNode.children">
-      <TreeView v-for="(treeNode, index) in dataNode.children" :data-node="treeNode"></TreeView>
+      <TreeView v-for="(treeNode, index) in dataNode.children" :key="treeNode.tId" :data-node="treeNode"></TreeView>
     </ul>
   </li>
 </template>
