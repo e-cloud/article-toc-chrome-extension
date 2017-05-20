@@ -47,3 +47,5 @@ test/e2e/reports
 selenium-debug.log
 lib
 yarn.lock
+
+dev-dist/

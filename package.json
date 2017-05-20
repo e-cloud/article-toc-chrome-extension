@@ -6,6 +6,7 @@
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
+    "dev-chrome": "cross-env NODE_ENV=chromeDev node build/dev-chrome-server.js",
     "build": "node build/build.js",
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "unit-dev": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js",
@@ -14,6 +15,7 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
   },
   "dependencies": {
+    "copy-webpack-plugin": "^4.0.1",
     "lodash": "^4.17.2",
     "smoothscroll-for-websites": "^1.4.6",
     "vue": "^2.1.10"
