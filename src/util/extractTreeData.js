@@ -3,9 +3,12 @@ import TreeRoot from '../model/TreeRoot'
 
 const headerSelector = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].join(', ')
 
-export default function buildTree($article) {
-  const $headers = Array.from($article.querySelectorAll(headerSelector))
+export default function buildTree($headers) {
   return extractTreeViaLoop($headers)
+}
+
+export function extractHeaders(article) {
+  return Array.from(article.querySelectorAll(headerSelector))
 }
 
 function extractTreeViaLoop(headerList) {

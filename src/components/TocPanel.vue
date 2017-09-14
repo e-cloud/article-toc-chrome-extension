@@ -1,8 +1,8 @@
 <template>
   <div class="toc-panel">
     <TocPanelHeader></TocPanelHeader>
-    <ul class="toc-list" v-prevent-parent-scroll>
-      <TreeViewRoot v-for="(rootNode, index) in treeList" :key="rootNode.tId" :data-node="rootNode"></TreeViewRoot>
+    <ul class="toc-container" v-prevent-parent-scroll>
+      <TreeViewRoot :data-node="tree"></TreeViewRoot>
     </ul>
     <TocPanelFooter></TocPanelFooter>
   </div>
@@ -16,8 +16,8 @@
   export default {
     name: 'toc-panel',
     props: {
-      treeList: {
-        type: Array
+      tree: {
+        type: Object
       }
     },
     components: {
@@ -35,13 +35,13 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  .toc-list {
+  .toc-container {
     max-height: 500px;
     height: auto;
     max-width: 300px;
     overflow: auto;
   }
-  .toc-list > .tree-view {
+  .tree-view {
     list-style-type: none;
   }
 </style>

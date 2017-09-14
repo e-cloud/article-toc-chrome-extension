@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <TocPanel :tree-list="appData"></TocPanel>
+    <TocPanel :tree="appData"></TocPanel>
   </div>
 </template>
 
