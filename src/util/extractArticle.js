@@ -8,12 +8,12 @@ const FLAG_STRIP_UNLIKELYS = 0x1
 const FLAG_WEIGHT_CLASSES = 0x2
 
 const REGEXPS = {
-  unlikelyCandidates: /banner|breadcrumbs|combx|comment|community|cover-wrap|disqus|extra|foot|header|legends|menu|modal|related|remark|replies|rss|shoutbox|sidebar|skyscraper|social|sponsor|supplemental|ad-break|agegate|pagination|pager|popup|yom-remote/i,
-  okMaybeItsACandidate: /and|article|body|column|main|shadow/i,
-  positive: /article|body|content|entry|hentry|h-entry|main|page|pagination|post|text|blog|story/i,
-  negative: /hidden|^hid$| hid$| hid |^hid |banner|combx|comment|com-|contact|foot|footer|footnote|masthead|media|meta|modal|outbrain|promo|related|scroll|share|shoutbox|sidebar|skyscraper|sponsor|shopping|tags|tool|widget/i,
-  extraneous: /print|archive|comment|discuss|e[\-]?mail|share|reply|all|login|sign|single|utility/i,
-  byline: /byline|author|dateline|writtenby|p-author/i,
+  unlikelyCandidates: /(banner|breadcrumbs|combx|comment|community|control|cover-wrap|disqus|extra|foot|header|legends|menu|metabar|modal|nav|newsletter|nocontent|related|remark|replies|rss|sale|shoutbox|side|sidebar|skyscraper|social|sponsor|supplemental|trial|toc|ad-break|agegate|pagination|pager|popup|yom-remote)/ig,
+  okMaybeItsACandidate: /(and|article|body|column|main|shadow)/ig,
+  positive: /(article|body|content|entry|hentry|h-entry|main|page|pagination|post|text|blog|story)/ig,
+  negative: /(hidden|^hid$| hid$| hid |^hid |banner|combx|comment|com-|contact|foot|footer|footnote|masthead|media|meta|modal|nav|outbrain|promo|related|scroll|share|shoutbox|sidebar|skyscraper|sponsor|shopping|tags|tool|widget)/ig,
+  extraneous: /(print|archive|comment|discuss|e[\-]?mail|share|reply|all|login|sign|single|utility)/ig,
+  byline: /(byline|author|dateline|writtenby|p-author)/ig,
   replaceFonts: /<(\/?)font[^>]*>/gi,
   normalize: /\s{2,}/g,
   videos: /\/\/(www\.)?(dailymotion|youtube|youtube-nocookie|player\.vimeo)\.com/i,
@@ -27,7 +27,7 @@ const DEFAULT_N_TOP_CANDIDATES = 5
 
 const HEADS = ['H1', 'H2', 'H3', 'H4', 'H5', 'H6']
 
-const DEFAULT_TAGS_TO_SCORE = 'section,h1,h2,h3,h4,h5,h6,p,td,pre'.toUpperCase().split(',')
+const DEFAULT_TAGS_TO_SCORE = 'article,section,h1,h2,h3,h4,h5,h6,p,td,pre'.toUpperCase().split(',')
 
 const DIV_TO_P_ELEMS = ['A', 'BLOCKQUOTE', 'DL', 'DIV', 'IMG', 'OL', 'P', 'PRE', 'TABLE', 'UL', 'SELECT']
 
@@ -38,25 +38,70 @@ const dbg = (typeof console !== 'undefined') ? function (s) {
 } : function () {
 }
 
-export function grabArticle(page = document.body) {
-  const stripUnlikelyCandidates = flagIsActive(FLAG_STRIP_UNLIKELYS)
+export function remapOriginalElements(elems, sourceMap, cloneMap) {
+  return elems.map(elem => sourceMap.get(cloneMap.get(elem)))
+}
 
+export function grabArticle(page = document.body) {
   const originElements = page.getElementsByTagName('*')
 
-  tagAllElement(originElements)
+  const idToOriginElems = generateIdToElementsMap(originElements)
 
-  const allElements = page.cloneNode(true).getElementsByTagName('*')
-  /**
-   * First, node prepping. Trash nodes that look cruddy (like ones with the class name "comment", etc), and turn divs
-   * into P tags where they have been used inappropriately (as in, where they contain no other block level elements.)
-   *
-   * Note: Assignment from index for performance. See http://www.peachpit.com/articles/article.aspx?p=31567&seqNum=5
-   * TODO: Shouldn't this be a reverse traversal?
+  const clonedPage = page.cloneNode(true)
+
+  const clonedTree = clonedPage.getElementsByTagName('*')
+
+  const clonedElemsToId = generateElementsToIdMap(clonedTree)
+
+  // First, node prepping
+  const nodesToScore = prepNodes(clonedTree)
+
+  const candidates = scoreNodes(nodesToScore)
+
+  const topCandidates = filterTopCandidates(candidates)
+
+  let topCandidate = topCandidates[0] || null
+
+  let finalTarget
+
+  /*
+   * If we still have no top candidate, just use the body as a last resort.
+   * We also have to copy the body node so it is something we can modify.
    **/
+  if (topCandidate === null || topCandidate.tagName === 'BODY') {
+    finalTarget = clonedPage
+  } else {
+    if (topCandidate) {
+      topCandidate = findBetterCandidate(topCandidate, topCandidates)
+    }
+
+    checkValidReadability(topCandidate)
+
+    finalTarget = checkCandidateParent(topCandidate) ? topCandidate.parentNode : topCandidate
+  }
+
+  return {
+    // the target is a cloned element with some irrelevant elements striped, it could be used to extract
+    // headers to construct toc
+    target: finalTarget,
+    sourceTree: idToOriginElems,
+    clonedTree: clonedElemsToId
+  }
+}
+
+/**
+ * Trash nodes that look cruddy (like ones with the class name "comment", etc), and turn divs
+ * into P tags where they have been used inappropriately (as in, where they contain no other block level elements.)
+ *
+ * Note: Assignment from index for performance. See http://www.peachpit.com/articles/article.aspx?p=31567&seqNum=5
+ * TODO: Shouldn't this be a reverse traversal?
+ */
+function prepNodes(elements) {
+  const stripUnlikelyCandidates = flagIsActive(FLAG_STRIP_UNLIKELYS)
   let node
   const nodesToScore = []
-  for (let nodeIndex = 0; node = allElements[nodeIndex]; nodeIndex++) {
-    const matchString = node.className + ' ' + node.id
+  for (let nodeIndex = 0; node = elements[nodeIndex]; nodeIndex++) {
+    const matchString = node.tagName + ' ' + node.className + ' ' + node.id
 
     // Check to see if this node is a byline, and remove it if it is.
     if (checkByline(node, matchString)) {
@@ -67,8 +112,10 @@ export function grabArticle(page = document.body) {
 
     /* Remove unlikely candidates */
     if (stripUnlikelyCandidates) {
-      if (REGEXPS.unlikelyCandidates.test(matchString)
-          && !REGEXPS.okMaybeItsACandidate.test(matchString)
+      const unlikelyMatches = matchString.match(REGEXPS.unlikelyCandidates)
+      const maybeMatches = matchString.match(REGEXPS.okMaybeItsACandidate)
+      if (unlikelyMatches
+          && (!maybeMatches || maybeMatches && unlikelyMatches.length > maybeMatches.length)
           && node.tagName !== 'BODY'
           && node.tagName !== 'A'
       ) {
@@ -118,14 +165,18 @@ export function grabArticle(page = document.body) {
     }
   }
 
-  /**
-   * Loop through all paragraphs, and assign a score to them based on how content-y they look.
-   * Then add their score to their parent node.
-   *
-   * A score is determined by things like number of commas, class names, etc. Maybe eventually link density.
-   **/
+  return nodesToScore
+}
+
+/**
+ * Loop through all paragraphs, and assign a score to them based on how content-y they look.
+ * Then add their score to their parent node.
+ *
+ * A score is determined by things like number of commas, class names, etc. Maybe eventually link density.
+ */
+function scoreNodes(nodes) {
   const candidates = []
-  for (const nodeToScore of nodesToScore) {
+  for (const nodeToScore of nodes) {
     const parentNode = nodeToScore.parentNode
 
     if (!parentNode || typeof parentNode.tagName === 'undefined') {
@@ -134,7 +185,7 @@ export function grabArticle(page = document.body) {
 
     const innerText = getInnerText(nodeToScore)
     /* If this paragraph is less than 25 characters, don't even count it. */
-    if (innerText.length < 25 && !["H1", "H2"].includes(nodeToScore.tagName)) {
+    if (innerText.length < 25 && !['H1', 'H2'].includes(nodeToScore.tagName)) {
       continue
     }
 
@@ -147,8 +198,8 @@ export function grabArticle(page = document.body) {
     /* Add a point for the paragraph itself as a base. */
     contentScore += 1
 
-    /* Add points for any commas within this paragraph */
-    contentScore += innerText.split(',').length
+    /* Add points for any serious punctuation within this paragraph */
+    contentScore += innerText.split(/[,.?]/).length
 
     /* For every 100 characters in this paragraph, add another point. Up to 3 points. */
     contentScore += Math.min(Math.floor(innerText.length / 100), 3)
@@ -158,7 +209,7 @@ export function grabArticle(page = document.body) {
         return
       }
 
-      if (typeof(ancestor.readability) === 'undefined') {
+      if (typeof ancestor.$readability === 'undefined') {
         initializeNode(ancestor)
         candidates.push(ancestor)
       }
@@ -169,20 +220,24 @@ export function grabArticle(page = document.body) {
       // - great grandparent+: ancestor level * 3
       let scoreDivider
       if (level === 0) {
-        scoreDivider = 1
+        scoreDivider = 1.5
       } else if (level === 1) {
-        scoreDivider = 2
+        scoreDivider = 3
       } else {
         scoreDivider = level * 3
       }
-      ancestor.readability.contentScore += contentScore / scoreDivider
+      ancestor.$readability.contentScore += contentScore / scoreDivider
     })
   }
 
-  /**
-   * After we've calculated scores, loop through all of the possible candidate nodes we found
-   * and find the one with the highest score.
-   **/
+  return candidates
+}
+
+/**
+ * After we've calculated scores, loop through all of the possible candidate nodes we found
+ * and find the one with the highest score.
+ */
+function filterTopCandidates(candidates) {
   const topCandidates = []
   for (const candidate of candidates) {
     /**
@@ -190,15 +245,15 @@ export function grabArticle(page = document.body) {
      * relatively small link density (5% or less) and be mostly unaffected by this operation.
      **/
     const candidateScore =
-      candidate.readability.contentScore =
-        candidate.readability.contentScore * (1 - getLinkDensity(candidate))
+      candidate.$readability.contentScore =
+        candidate.$readability.contentScore * (1 - getLinkDensity(candidate))
 
     dbg(`Candidate: ${candidate} (${candidate.className}:${candidate.id}) with score ${candidateScore}`)
 
     for (let t = 0; t < DEFAULT_N_TOP_CANDIDATES; t++) {
       const aTopCandidate = topCandidates[t]
 
-      if (!aTopCandidate || candidateScore > aTopCandidate.readability.contentScore) {
+      if (!aTopCandidate || candidateScore > aTopCandidate.$readability.contentScore) {
         topCandidates.splice(t, 0, candidate)
         if (topCandidates.length > DEFAULT_N_TOP_CANDIDATES) {
           topCandidates.pop()
@@ -208,113 +263,109 @@ export function grabArticle(page = document.body) {
     }
   }
 
-  let topCandidate = topCandidates[0] || null
+  return topCandidates
+}
+
+/**
+ * Find a better top candidate node if it contains (at least three) nodes which belong to `topCandidates` array
+ * and whose scores are quite closed with current `topCandidate` node.
+ */
+function findBetterCandidate(topCandidate, topCandidates) {
   let parentOfTopCandidate
-
-  /**
-   * If we still have no top candidate, just use the body as a last resort.
-   * We also have to copy the body node so it is something we can modify.
-   **/
-  if (topCandidate === null || topCandidate.tagName === 'BODY') {
-    topCandidate = document.body
-  } else if (topCandidate) {
-    // Find a better top candidate node if it contains (at least three) nodes which belong to `topCandidates` array
-    // and whose scores are quite closed with current `topCandidate` node.
-    const alternativeCandidateAncestors = []
-    for (const candidate of topCandidates) {
-      if (candidate.readability.contentScore / topCandidate.readability.contentScore >= 0.75) {
-        alternativeCandidateAncestors.push(getNodeAncestors(candidate))
-      }
+  const alternativeCandidateAncestors = []
+  for (const candidate of topCandidates) {
+    if (candidate.$readability.contentScore / topCandidate.$readability.contentScore >= 0.75) {
+      alternativeCandidateAncestors.push(getNodeAncestors(candidate))
     }
-    const MINIMUM_TOP_CANDIDATES = 3
-    if (alternativeCandidateAncestors.length >= MINIMUM_TOP_CANDIDATES) {
-      parentOfTopCandidate = topCandidate.parentNode
-      while (parentOfTopCandidate.tagName !== 'BODY') {
-        let listsContainingThisAncestor = 0
-        for (let ancestorIndex = 0;
-             ancestorIndex < alternativeCandidateAncestors.length
-             && listsContainingThisAncestor < MINIMUM_TOP_CANDIDATES;
-             ancestorIndex++) {
-          listsContainingThisAncestor += Number(alternativeCandidateAncestors[ancestorIndex].includes(parentOfTopCandidate))
-        }
-        if (listsContainingThisAncestor >= MINIMUM_TOP_CANDIDATES) {
-          topCandidate = parentOfTopCandidate
-          break
-        }
-        parentOfTopCandidate = parentOfTopCandidate.parentNode
-      }
-    }
-
-    if (!topCandidate.readability) {
-      initializeNode(topCandidate);
-    }
-
-    // Because of our bonus system, parents of candidates might have scores
-    // themselves. They get half of the node. There won't be nodes with higher
-    // scores than our topCandidate, but if we see the score going *up* in the first
-    // few steps up the tree, that's a decent sign that there might be more content
-    // lurking in other places that we want to unify in. The sibling stuff
-    // below does some of that - but only if we've looked high enough up the DOM
-    // tree.
+  }
+  const MINIMUM_TOP_CANDIDATES = 3
+  if (alternativeCandidateAncestors.length >= MINIMUM_TOP_CANDIDATES) {
     parentOfTopCandidate = topCandidate.parentNode
-    let lastScore = topCandidate.readability.contentScore
-    // The scores shouldn't get too low.
-    const scoreThreshold = lastScore / 3
     while (parentOfTopCandidate.tagName !== 'BODY') {
-      if (!parentOfTopCandidate.readability) {
-        parentOfTopCandidate = parentOfTopCandidate.parentNode
-        continue
+      let listsContainingThisAncestor = 0
+      for (let ancestorIndex = 0;
+           ancestorIndex < alternativeCandidateAncestors.length
+           && listsContainingThisAncestor < MINIMUM_TOP_CANDIDATES;
+           ancestorIndex++) {
+        listsContainingThisAncestor += Number(alternativeCandidateAncestors[ancestorIndex].includes(parentOfTopCandidate))
       }
-      const parentScore = parentOfTopCandidate.readability.contentScore
-      if (parentScore < scoreThreshold) {
-        break
-      }
-      if (parentScore > lastScore) {
-        // Alright! We found a better parent to use.
+      if (listsContainingThisAncestor >= MINIMUM_TOP_CANDIDATES) {
         topCandidate = parentOfTopCandidate
         break
       }
-      lastScore = parentOfTopCandidate.readability.contentScore
       parentOfTopCandidate = parentOfTopCandidate.parentNode
     }
-
-    // If the top candidate is the only child, use parent instead. This will help sibling
-    // joining logic when adjacent content is actually located in parent's sibling node.
-    parentOfTopCandidate = topCandidate.parentNode
-
-    while (parentOfTopCandidate.tagName !== 'BODY' && parentOfTopCandidate.children.length === 1) {
-      topCandidate = parentOfTopCandidate
-      parentOfTopCandidate = topCandidate.parentNode
-    }
   }
 
-  if (!topCandidate.readability) {
-    initializeNode(topCandidate);
-  }
+  checkValidReadability(topCandidate)
 
-  // Now that we have the top candidate, look through its siblings for content
-  // that might also be related. Things like preambles, content split by ads
-  // that we removed, etc.
-
-  const siblingScoreThreshold = Math.max(10, topCandidate.readability.contentScore * 0.2)
-  // Keep potential top candidate's parent node to try to get text direction of it later.
+  // Because of our bonus system, parents of candidates might have scores
+  // themselves. They get half of the node. There won't be nodes with higher
+  // scores than our topCandidate, but if we see the score going *up* in the first
+  // few steps up the tree, that's a decent sign that there might be more content
+  // lurking in other places that we want to unify in. The sibling stuff
+  // below does some of that - but only if we've looked high enough up the DOM
+  // tree.
   parentOfTopCandidate = topCandidate.parentNode
+  let lastScore = topCandidate.$readability.contentScore
+  // The scores shouldn't get too low.
+  const scoreThreshold = lastScore / 3
+  while (parentOfTopCandidate.tagName !== 'BODY') {
+    if (!parentOfTopCandidate.$readability) {
+      parentOfTopCandidate = parentOfTopCandidate.parentNode
+      continue
+    }
+    const parentScore = parentOfTopCandidate.$readability.contentScore
+    if (parentScore < scoreThreshold) {
+      break
+    }
+    if (parentScore > lastScore) {
+      // Alright! We found a better parent to use.
+      topCandidate = parentOfTopCandidate
+      break
+    }
+    lastScore = parentOfTopCandidate.$readability.contentScore
+    parentOfTopCandidate = parentOfTopCandidate.parentNode
+  }
+
+  // If the top candidate is the only child, use parent instead. This will help sibling
+  // joining logic when adjacent content is actually located in parent's sibling node.
+  parentOfTopCandidate = topCandidate.parentNode
+
+  while (parentOfTopCandidate.tagName !== 'BODY' && parentOfTopCandidate.children.length === 1) {
+    topCandidate = parentOfTopCandidate
+    parentOfTopCandidate = topCandidate.parentNode
+  }
+
+  return topCandidate
+}
+
+/**
+ * Now that we have the top candidate, look through its siblings for content
+ * that might also be related to see if we should use the parent of topCandidate as final target.
+ * Things like preambles, content split by ads that we removed, etc.
+ */
+function checkCandidateParent(topCandidate) {
+  // Keep potential top candidate's parent node to try to get text direction of it later.
+  const parentOfTopCandidate = topCandidate.parentNode
   const siblings = parentOfTopCandidate.children
+  const siblingScoreThreshold = Math.max(10, topCandidate.$readability.contentScore * 0.2)
 
   let chooseParent = false
+
   for (const sibling of siblings) {
-    dbg('Looking at sibling node:', sibling, sibling.readability ? `with score ${sibling.readability.contentScore}` : '')
-    dbg('Sibling has score', sibling.readability ? sibling.readability.contentScore : 'Unknown')
+    dbg('Looking at sibling node:', sibling, sibling.$readability ? `with score ${sibling.$readability.contentScore}` : '')
+    dbg('Sibling has score', sibling.$readability ? sibling.$readability.contentScore : 'Unknown')
 
     if (sibling !== topCandidate) {
       let contentBonus = 0
 
       // Give a bonus if sibling nodes and top candidates have the example same classname
       if (sibling.className === topCandidate.className && topCandidate.className !== '') {
-        contentBonus += topCandidate.readability.contentScore * 0.2
+        contentBonus += topCandidate.$readability.contentScore * 0.2
       }
 
-      if (sibling.readability && ((sibling.readability.contentScore + contentBonus) >= siblingScoreThreshold)) {
+      if (sibling.$readability && ((sibling.$readability.contentScore + contentBonus) >= siblingScoreThreshold)) {
         chooseParent = true
       } else if (sibling.nodeName === 'P') {
         const linkDensity = getLinkDensity(sibling)
@@ -337,19 +388,33 @@ export function grabArticle(page = document.body) {
     }
   }
 
-  return findTargetElementByTocId(originElements, chooseParent ? parentOfTopCandidate : topCandidate)
+  return chooseParent
 }
 
-let idCount = 0
+function checkValidReadability(node) {
+  if (!node.$readability) {
+    initializeNode(node)
+  }
+}
 
-function tagAllElement(elements) {
+function generateIdToElementsMap(elements) {
+  let idCount = 0
+  const map = new Map()
   Array.from(elements).forEach(function (elem) {
-    elem.dataset.TOC_ID = idCount++
+    map.set(idCount++, elem)
   })
+
+  return map
 }
 
-function findTargetElementByTocId(elements, target) {
-  return Array.from(elements).find(elem => elem.dataset.TOC_ID === target.dataset.TOC_ID)
+function generateElementsToIdMap(elements) {
+  let idCount = 0
+  const map = new Map()
+  Array.from(elements).forEach(function (elem) {
+    map.set(elem, idCount++)
+  })
+
+  return map
 }
 
 function someNode(nodeList, fn) {
@@ -378,8 +443,8 @@ function setNodeTag(node, tag) {
   }
   node.parentNode.replaceChild(replacement, node)
 
-  if (node.readability) {
-    replacement.readability = node.readability
+  if (node.$readability) {
+    replacement.$readability = node.$readability
   }
 
   for (const attr of node.attributes) {
@@ -408,13 +473,14 @@ function hasChildBlockElement(element) {
 
 function isValidByline(byline) {
   if (typeof byline === 'string') {
-    byline = byline.trim()
+    byline = byline.trim().replace(/\s{3,}/g, ' ')
     return (byline.length > 0) && (byline.length < 100)
   }
   return false
 }
 
 let articleByline = false
+
 function checkByline(node, matchString) {
   if (articleByline) {
     return false
@@ -454,7 +520,7 @@ function flagIsActive(flag) {
 function getInnerText(element, normalizeSpaces) {
   let textContent = ''
 
-  if (typeof(element.textContent) === 'undefined' && typeof(element.innerText) === 'undefined') {
+  if (typeof element.textContent === 'undefined' && typeof element.innerText === 'undefined') {
     return ''
   }
 
@@ -487,17 +553,19 @@ function getLinkDensity(e) {
 }
 
 function initializeNode(node) {
-  node.readability = { 'contentScore': 0 }
+  node.$readability = { 'contentScore': 0 }
 
   switch (node.tagName) {
     case 'DIV':
-      node.readability.contentScore += 5
+    case 'SECTION':
+    case 'ARTICLE':
+      node.$readability.contentScore += 5
       break
 
     case 'PRE':
     case 'TD':
     case 'BLOCKQUOTE':
-      node.readability.contentScore += 3
+      node.$readability.contentScore += 3
       break
 
     case 'ADDRESS':
@@ -508,7 +576,7 @@ function initializeNode(node) {
     case 'DT':
     case 'LI':
     case 'FORM':
-      node.readability.contentScore -= 3
+      node.$readability.contentScore -= 3
       break
 
     case 'H1':
@@ -518,11 +586,11 @@ function initializeNode(node) {
     case 'H5':
     case 'H6':
     case 'TH':
-      node.readability.contentScore -= 5
+      node.$readability.contentScore -= 5
       break
   }
 
-  node.readability.contentScore += getClassWeight(node)
+  node.$readability.contentScore += getClassWeight(node)
 }
 
 function getClassWeight(e) {
@@ -533,7 +601,7 @@ function getClassWeight(e) {
   let weight = 0
 
   /* Look for a special classname */
-  if (typeof(e.className) === 'string' && e.className !== '') {
+  if (typeof e.className === 'string' && e.className !== '') {
     if (REGEXPS.negative.test(e.className)) {
       weight -= 25
     }
@@ -544,7 +612,7 @@ function getClassWeight(e) {
   }
 
   /* Look for a special ID */
-  if (typeof(e.id) === 'string' && e.id !== '') {
+  if (typeof e.id === 'string' && e.id !== '') {
     if (REGEXPS.negative.test(e.id)) {
       weight -= 25
     }
