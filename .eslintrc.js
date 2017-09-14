@@ -6,6 +6,9 @@ module.exports = {
   parserOptions: {
     sourceType: 'module'
   },
+  env: {
+    browser: true,
+  },
   extends: 'airbnb-base',
   // required to lint *.vue files
   plugins: [
@@ -38,7 +41,8 @@ module.exports = {
     'comma-dangle': 0,
     quotes: ['error', 'single'],
     'quote-props': ['error', 'as-needed'],
-    'prefer-arrow-callback': 0
+    'prefer-arrow-callback': 0,
+    'prefer-destructuring': 0
   },
   'env': {
     'browser': true,
