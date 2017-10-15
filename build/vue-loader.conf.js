@@ -1,20 +1,15 @@
-var utils = require('./utils')
-var config = require('../config')
-var isProduction = process.env.NODE_ENV === 'production'
-var isChromeDev = process.env.NODE_ENV === 'chromeDev'
+'use strict'
+const utils = require('./utils')
+const config = require('../config')
+const isProduction = process.env.NODE_ENV === 'production'
 
 module.exports = {
   loaders: utils.cssLoaders({
     sourceMap: isProduction
       ? config.build.productionSourceMap
       : config.dev.cssSourceMap,
-    extract: isProduction || isChromeDev
+    extract: isProduction
   }),
-  postcss: [
-    require('autoprefixer')({
-      browsers: ['last 2 versions']
-    })
-  ],
   transformToRequire: {
     video: 'src',
     source: 'src',

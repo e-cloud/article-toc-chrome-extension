@@ -1,12 +1,12 @@
-var utils = require('./utils')
-var webpack = require('webpack')
-var config = require('../config')
-var merge = require('webpack-merge')
-var baseWebpackConfig = require('./webpack.base.conf')
-var CopyWebpackPlugin = require('copy-webpack-plugin')
-var ForceOutputPlugin = require('./ForceOutputPlugin')
-var ExtractTextPlugin = require('extract-text-webpack-plugin')
-var FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
+const utils = require('./utils')
+const webpack = require('webpack')
+const config = require('../config')
+const merge = require('webpack-merge')
+const baseWebpackConfig = require('./webpack.base.conf')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const ForceOutputPlugin = require('./ForceOutputPlugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 
 module.exports = merge(baseWebpackConfig, {
   output: {
