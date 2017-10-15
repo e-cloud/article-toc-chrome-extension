@@ -1,15 +1,17 @@
 import Vue from 'vue'
 import App from './App'
-import extractTree from './util/extractTreeData'
 import './directives/preventParentScroll.directive'
+import { grabArticle, remapOriginalElements } from './util/extractArticle'
+import extractTree, { extractHeaders } from './util/extractTreeData'
 
+export default function bootstrap() {
+  const result = grabArticle()
+  // eslint-disable-next-line
+  const originalTarget = result.sourceTree.get(result.clonedTree.get(result.target))
+  // eslint-disable-next-line
+  const headers = remapOriginalElements(extractHeaders(result.target), result.sourceTree, result.clonedTree)
 
-export default function () {
-  const $articles = Array.from(document.querySelectorAll('article'))
-  const treeList = $articles
-    .map($article => extractTree($article))
-
-  return initApp(buildPluginContainer(), treeList)
+  return initApp(buildPluginContainer(), extractTree(headers))
 }
 
 function buildPluginContainer() {
@@ -18,20 +20,20 @@ function buildPluginContainer() {
   return document.body.appendChild($container)
 }
 
-function initApp($container, treeList) {
+function initApp($container, tree) {
   const instance = new Vue({
     el: $container,
-    template: '<App :app-data="treeList"/>',
+    template: '<App :app-data="tree"/>',
     components: { App },
     data() {
       return {
-        treeList
+        tree
       }
     },
     created() {
       // console.log(this);
     },
-  });
+  })
 
   return instance
 }
