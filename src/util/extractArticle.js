@@ -8,8 +8,8 @@ const FLAG_STRIP_UNLIKELYS = 0x1
 const FLAG_WEIGHT_CLASSES = 0x2
 
 const REGEXPS = {
-  unlikelyCandidates: /(banner|breadcrumbs|combx|comment|community|control|cover-wrap|disqus|extra|foot|header|legends|menu|metabar|modal|nav|newsletter|nocontent|related|remark|replies|rss|sale|shoutbox|side|sidebar|skyscraper|social|sponsor|supplemental|trial|toc|ad-break|agegate|pagination|pager|popup|yom-remote)/ig,
-  okMaybeItsACandidate: /(and|article|body|column|main|shadow)/ig,
+  unlikelyCandidates: /(banner|breadcrumbs|combx|comment|community|control|cover-wrap|disqus|extra|foot|legends|menu|metabar|modal|newsletter|nocontent|related|remark|replies|rss|sale|shoutbox|side|sidebar|skyscraper|social|sponsor|supplemental|trial|toc|ad-break|agegate|pagination|pager|popup|yom-remote)/ig,
+  okMaybeItsACandidate: /(and|article|body|column|header|main|shadow)/ig,
   positive: /(article|body|content|entry|hentry|h-entry|main|page|pagination|post|text|blog|story)/ig,
   negative: /(hidden|^hid$| hid$| hid |^hid |banner|combx|comment|com-|contact|foot|footer|footnote|masthead|media|meta|modal|nav|outbrain|promo|related|scroll|share|shoutbox|sidebar|skyscraper|sponsor|shopping|tags|tool|widget)/ig,
   extraneous: /(print|archive|comment|discuss|e[\-]?mail|share|reply|all|login|sign|single|utility)/ig,
@@ -101,7 +101,7 @@ function prepNodes(elements) {
   let node
   const nodesToScore = []
   for (let nodeIndex = 0; node = elements[nodeIndex]; nodeIndex++) {
-    const matchString = node.tagName + ' ' + node.className + ' ' + node.id
+    const matchString = node.className + ' ' + node.id
 
     // Check to see if this node is a byline, and remove it if it is.
     if (checkByline(node, matchString)) {

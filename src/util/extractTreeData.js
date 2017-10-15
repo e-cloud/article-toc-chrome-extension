@@ -14,7 +14,7 @@ export function extractHeaders(article) {
 function extractTreeViaLoop(headerList) {
   let currentLoc = 0
   let lastLoc = 0
-  const root = new TreeRoot('test').setData({
+  const root = new TreeRoot('toc_tree').setData({
     loc: -1
   })
   let parentNode = root
@@ -31,11 +31,12 @@ function extractTreeViaLoop(headerList) {
     // or currentLevel is lower than lastLevel but higher than parentLevel,
     // directly append to current parent
     if (currentLoc === 0
-      || currentLevel === lastLevel
-      || (
-        currentLevel < lastLevel
-        && getHeaderLevel(headerList[parentNode.data.loc]) < currentLevel
-      )
+        || currentLevel === lastLevel
+        || (
+          currentLevel < lastLevel
+          && (getHeaderLevel(headerList[parentNode.data.loc]) < currentLevel
+              || parentNode.data.loc === -1)
+        )
     ) {
       const node = new TreeNode(parentNode.root.generateNodeId())
       node.setParent(parentNode)
@@ -49,7 +50,8 @@ function extractTreeViaLoop(headerList) {
       currentLoc += 1
     }
 
-    // when current is higher than last, create a sub-container in last, then append the current
+    // when current is higher than last, create a sub-container in last leaf,
+    // then append the current
     else if (currentLevel > lastLevel) {
       const child = parentNode.getLastChild().setAsParent()
 
@@ -101,11 +103,11 @@ function extractTreeRecursively(parentNode, currentLoc, lastLoc, headerList) { /
   // or currentLevel is lower than lastLevel but higher than parentLevel,
   // directly append to current parent
   if (currentLoc === 0
-    || currentLevel === lastLevel
-    || (
-      currentLevel < lastLevel
-      && getHeaderLevel(headerList[parentNode.data.loc]) < currentLevel
-    )
+      || currentLevel === lastLevel
+      || (
+        currentLevel < lastLevel
+        && getHeaderLevel(headerList[parentNode.data.loc]) < currentLevel
+      )
   ) {
     const node = new TreeNode(parentNode.root.generateNodeId())
     node.setParent(parentNode)
