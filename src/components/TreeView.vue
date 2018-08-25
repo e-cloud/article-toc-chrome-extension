@@ -1,8 +1,11 @@
 <template>
-  <li class="tree-view">
-    <a class="toc-link" :href="'#' + href" @click.prevent="scrollIntoView()">{{ title }}</a>
+  <li class="tree-view" :class="{ 'link-referable': linkReferable }">
+    <div class="tree-item-content">
+      <a class="toc-link text-truncate" :title="title" :href="'#' + href" @click.prevent="scrollIntoView()">{{ title }} </a>
+    </div>
+
     <ul class="sub-tree-list" v-if="dataNode.children">
-      <TreeView v-for="(treeNode, index) in dataNode.children" :key="treeNode.tId" :data-node="treeNode"></TreeView>
+      <TreeView v-for="(treeNode) in dataNode.children" :key="treeNode.tId" :data-node="treeNode"></TreeView>
     </ul>
   </li>
 </template>
@@ -18,7 +21,7 @@
     props: {
       dataNode: {
         type: TreeNode
-      }
+      },
     },
     name: 'TreeView',
     computed: {
@@ -49,6 +52,9 @@
           return id
         }
         return ''
+      },
+      linkReferable() {
+        return !this.href.startsWith('toc-id');
       }
     },
     methods: {
@@ -60,12 +66,37 @@
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style scoped lang="scss">
   .tree-view {
-    margin-left: 1.5em;
+    margin-left: 1.2rem;
+    list-style-type: none;
+    font-size: 1rem;
+  }
+
+  .link-referable {
+    list-style-image: url("../assets/link.svg");
+  }
+
+  .tree-item-content {
+    position: relative;
   }
 
   .toc-link {
-    font-size: 1.2rem;
+    font-size: 1rem;
+    max-width: 12em;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1.15;
+    color: #444;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .text-truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 </style>

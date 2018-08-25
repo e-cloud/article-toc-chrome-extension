@@ -1,9 +1,134 @@
-.btn-ctrl {
-  padding: 0;
-  border-color: transparent;
-  outline: 0;
-  background-color: transparent;
-  .iconfont {
+$scale: 1;
+$indicatorSize: 30px;
+$animateDur: 2400ms;
+$startPercent: 0.12;
+
+#__article-toc-extension__ {
+  font-family: -apple-system, "Noto Sans", "Helvetica Neue", Helvetica, "Nimbus Sans L", Tahoma, Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Source Han Sans SC", "Source Han Sans CN", "Microsoft YaHei UI", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;;
+  -webkit-font-smoothing: antialiased;
+}
+
+.grab-status {
+  display: flex;
+  position: fixed;
+  right: -30px;
+  bottom: 30px;
+  width: 40px;
+  height: 30px;
+  transition: right 300ms ease-in-out;
+
+  &:hover {
+    right: 0;
+  }
+
+  &.no-article-found:hover {
+    right: -30px;
+  }
+
+  &.no-article-found .status-bar {
+    background-color: grey;
+  }
+
+  .status-bar {
+    width: 10px;
+    background-color: #47ab0c;
+    border-radius: 2px 0 0 2px;
+  }
+
+  .view-btn {
+    flex-grow: 1;
+    border: 0;
+    outline: 0;
+    margin: 0;
+    padding: 0;
+    background-color: whitesmoke;
+    color: #47ab0c;
+    font-size: 18px;
     line-height: 1;
+    cursor: pointer;
+  }
+}
+
+#__article-toc-extension_indicator__ {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: $indicatorSize;
+  height: $indicatorSize;
+  transform: rotateZ(45deg);
+  display: flex;
+  flex-wrap: wrap;
+  animation: rotate $animateDur*2/3 infinite linear both;
+
+  .sk-cube {
+    flex: 1 0 50%;
+    position: relative;
+    transform: scale($scale);
+    transform-origin: center center;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 2px;
+      background-color: #4682B4c0;
+      animation: sk-foldCubeAngle $animateDur infinite linear both;
+      transform-origin: 100% 100%;
+    }
+  }
+
+  .sk-cube1 {
+    order: 1;
+  }
+  .sk-cube2 {
+    order: 2;
+    transform: scale($scale) rotateZ(90deg);
+  }
+  .sk-cube3 {
+    order: 4;
+    transform: scale($scale) rotateZ(180deg);
+  }
+  .sk-cube4 {
+    order: 3;
+    transform: scale($scale) rotateZ(270deg);
+  }
+  .sk-cube2:before {
+    animation-delay: $startPercent * $animateDur;
+  }
+  .sk-cube3:before {
+    animation-delay: (2 * $startPercent) * $animateDur;
+  }
+  .sk-cube4:before {
+    animation-delay: (3 * $startPercent) * $animateDur;
+  }
+}
+
+$perspectiveDist: 100px;
+$startPercent2: percentage($startPercent);
+
+@keyframes sk-foldCubeAngle {
+  0%, #{$startPercent2} {
+    transform: perspective($perspectiveDist) rotate3d(1, 0, 0, -180deg);
+    opacity: 0;
+  }
+  #{2 * $startPercent2}, #{100% - 2 * $startPercent2} {
+    transform: perspective($perspectiveDist) rotate3d(1, 0, 0, 0deg);
+    opacity: 1;
+  }
+  #{100% - $startPercent2}, 100% {
+    transform: perspective($perspectiveDist) rotate3d(0, 1, 0, 180deg);
+    opacity: 0;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(45deg);
+  }
+  100% {
+    transform: rotate(405deg);
   }
 }

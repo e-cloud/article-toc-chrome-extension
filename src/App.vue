@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="__article-toc-extension_app__">
     <TocPanel :tree="appData"></TocPanel>
   </div>
 </template>
@@ -17,20 +17,11 @@
 </script>
 
 <style>
-  #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  #__article-toc-extension_app__ {
     color: #2c3e50;
-  }
-  #app {
     position: fixed;
-    z-index: 1500;
-    right: 0;
-    bottom: 0;
-    /* overflow: auto; */
-    background-color: white;
-    border: 1px solid grey;
-    box-shadow: 0 0 10px grey;
+    z-index: 150000;
+    right: 4px;
+    bottom: 4px;
   }
 </style>
