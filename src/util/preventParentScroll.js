@@ -5,7 +5,9 @@ export default function preventParentScroll(element) {
   let currentTarget = null
   element.addEventListener('wheel', listener, true)
 
-  return listener
+  return () => {
+    element.removeEventListener('wheel', listener)
+  }
 
   function listener(event) {
     delta += (event.wheelDeltaY || event.wheelDelta || 0) / 6

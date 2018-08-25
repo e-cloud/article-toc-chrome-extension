@@ -1,11 +1,13 @@
 <template>
   <div id="__article-toc-extension_app__">
     <TocPanel :tree="appData"></TocPanel>
+    <button v-on:click="closeTOC()">close</button>
   </div>
 </template>
 
 <script>
-  import TocPanel from './components/TocPanel';
+  import TocPanel from './components/TocPanel'
+  import pubsub from './util/pubsub'
 
   export default {
     props: ['appData'],
@@ -13,7 +15,12 @@
     components: {
       TocPanel,
     },
-  };
+    methods: {
+      closeTOC() {
+        pubsub.publish('closeTOC')
+      }
+    }
+  }
 </script>
 
 <style>

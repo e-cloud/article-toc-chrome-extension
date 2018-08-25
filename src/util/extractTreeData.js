@@ -31,12 +31,8 @@ function extractTreeViaLoop(headerList) {
     // or currentLevel is lower than lastLevel but higher than parentLevel,
     // directly append to current parent
     if (currentLoc === 0
-        || currentLevel === lastLevel
-        || (
-          currentLevel < lastLevel
-          && (getHeaderLevel(headerList[parentNode.data.loc]) < currentLevel
-              || parentNode.data.loc === -1)
-        )
+      || currentLevel === lastLevel
+      || (currentLevel < lastLevel && (getHeaderLevel(headerList[parentNode.data.loc]) < currentLevel || parentNode.data.loc === -1))
     ) {
       const node = new TreeNode(parentNode.root.generateNodeId())
       node.setParent(parentNode)
@@ -103,11 +99,8 @@ function extractTreeRecursively(parentNode, currentLoc, lastLoc, headerList) { /
   // or currentLevel is lower than lastLevel but higher than parentLevel,
   // directly append to current parent
   if (currentLoc === 0
-      || currentLevel === lastLevel
-      || (
-        currentLevel < lastLevel
-        && getHeaderLevel(headerList[parentNode.data.loc]) < currentLevel
-      )
+    || currentLevel === lastLevel
+    || (currentLevel < lastLevel && getHeaderLevel(headerList[parentNode.data.loc]) < currentLevel)
   ) {
     const node = new TreeNode(parentNode.root.generateNodeId())
     node.setParent(parentNode)
